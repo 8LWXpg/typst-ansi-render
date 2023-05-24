@@ -1,7 +1,7 @@
-// ansi rendering function
-#let ansi_render(body, font: "consolas") = {
-	// putty terminal color
-	let color = (
+// themes
+#let themes = (
+	// putty terminal theme
+	putty: (
 		black: rgb(0, 0, 0),
 		red: rgb(187, 0, 0),
 		green: rgb(0, 187, 0),
@@ -18,60 +18,69 @@
 		lightmagenta: rgb(255, 0, 255),
 		lightcyan: rgb(0, 255, 255),
 		lightwhite: rgb(255, 255, 255),
+		default_text: rgb(187, 187, 187),
+		default_bg: rgb(0, 0, 0)
 	)
+)
+
+// ansi rendering function
+#let ansi_render(body, font: "consolas", theme: themes.putty) = {
 	// dict with text style
 	let match_text = (
 		"1": (weight: "bold"),
 		"3": (style: "italic"),
 		"23": (style: "normal"),
-		"30": (fill: color.at("black")),
-		"31": (fill: color.at("red")),
-		"32": (fill: color.at("green")),
-		"33": (fill: color.at("yellow")),
-		"34": (fill: color.at("blue")),
-		"35": (fill: color.at("magenta")),
-		"36": (fill: color.at("cyan")),
-		"37": (fill: color.at("white")),
-		"39": (fill: color.at("white")), // default text color
-		"90": (fill: color.at("gray")),
-		"91": (fill: color.at("lightred")),
-		"92": (fill: color.at("lightgreen")),
-		"93": (fill: color.at("lightyellow")),
-		"94": (fill: color.at("lightblue")),
-		"95": (fill: color.at("lightmagenta")),
-		"96": (fill: color.at("lightcyan")),
-		"97": (fill: color.at("lightwhite")),
-		"default": (weight: "regular", style: "normal", fill: color.at("white"))
+		"30": (fill: theme.black),
+		"31": (fill: theme.red),
+		"32": (fill: theme.green),
+		"33": (fill: theme.yellow),
+		"34": (fill: theme.blue),
+		"35": (fill: theme.magenta),
+		"36": (fill: theme.cyan),
+		"37": (fill: theme.white),
+		"39": (fill: theme.default_text), // default text theme
+		"90": (fill: theme.gray),
+		"91": (fill: theme.lightred),
+		"92": (fill: theme.lightgreen),
+		"93": (fill: theme.lightyellow),
+		"94": (fill: theme.lightblue),
+		"95": (fill: theme.lightmagenta),
+		"96": (fill: theme.lightcyan),
+		"97": (fill: theme.lightwhite),
+		"default": (weight: "regular", style: "normal", fill: theme.default_text)
 	)
 	// dict with background style
 	let match_bg = (
-		"40": (fill: color.at("black")),
-		"41": (fill: color.at("red")),
-		"42": (fill: color.at("green")),
-		"43": (fill: color.at("yellow")),
-		"44": (fill: color.at("blue")),
-		"45": (fill: color.at("magenta")),
-		"46": (fill: color.at("cyan")),
-		"47": (fill: color.at("white")),
-		"49": (fill: color.at("black")), // default bg color
-		"100": (fill: color.at("gray")),
-		"101": (fill: color.at("lightred")),
-		"102": (fill: color.at("lightgreen")),
-		"103": (fill: color.at("lightyellow")),
-		"104": (fill: color.at("lightblue")),
-		"105": (fill: color.at("lightmagenta")),
-		"106": (fill: color.at("lightcyan")),
-		"107": (fill: color.at("lightwhite")),
-		"default": (fill: color.at("black"))
+		"40": (fill: theme.black),
+		"41": (fill: theme.red),
+		"42": (fill: theme.green),
+		"43": (fill: theme.yellow),
+		"44": (fill: theme.blue),
+		"45": (fill: theme.magenta),
+		"46": (fill: theme.cyan),
+		"47": (fill: theme.white),
+		"49": (fill: theme.default_bg), // default bg theme
+		"100": (fill: theme.gray),
+		"101": (fill: theme.lightred),
+		"102": (fill: theme.lightgreen),
+		"103": (fill: theme.lightyellow),
+		"104": (fill: theme.lightblue),
+		"105": (fill: theme.lightmagenta),
+		"106": (fill: theme.lightcyan),
+		"107": (fill: theme.lightwhite),
+		"default": (fill: theme.default_bg)
 	)
 
 	let match_options(opt) = {
 		let (opt_text, opt_bg) = ((:), (:))
-		let ul = false
+		let ul = none
+		let ol = none
 		for i in opt {
 			if i == "0" {
 				opt_text += match_text.default
 				opt_bg += match_bg.default
+				ul = false
+				ol = false
 			} else if i in match_bg.keys() {
 				opt_bg += match_bg.at(i)
 			} else if i in match_text.keys() {
@@ -80,9 +89,13 @@
 				ul = true
 			} else if i == "24" {
 				ul = false
+			} else if i == "53" {
+				ol = true
+			} else if i == "55" {
+				ol = false
 			}
 		}
-		(opt_text, opt_bg, ul)
+		(text: opt_text, bg: opt_bg, ul: ul, ol: ol)
 	}
 
 	let parse_option(body) = {
@@ -91,7 +104,7 @@
 		for map in body.matches(regex("\x1b\[([0-9;]*)m([^\x1b]*)")) {
 			// loop through all matches
 			let str = map.captures.at(1)
-			// split the string by newline
+			// split the string by newline and preserve newline
 			let split = str.split("\n")
 			for (k, v) in split.enumerate() {
 				if k != split.len()-1 {
@@ -111,28 +124,41 @@
 	set text(..(match_text.default), font: font, top-edge: "ascender", bottom-edge: "descender")
 	set par(leading: 0em)
 
-	let option = (match_text.default, match_bg.default, false)
+	let option = (
+		text: match_text.default,
+		bg: match_bg.default,
+		ul: false,
+		ol: false
+	)
 	rect(..(match_bg.default),
 		for (str, opt) in parse_option(body) {
+			// TODO: support option 7,27 (reverse, no reverse)
+			// TODO: support option 38,48 (foreground, background color)
 			let m = match_options(opt)
-			option.at(0) += m.at(0)
-			option.at(1) += m.at(1)
-			option.at(2) = m.at(2)
+			option.text += m.text
+			option.bg += m.bg
+			if m.ul != none { option.ul = m.ul }
+			if m.ol != none { option.ol = m.ol }
 
-			box(..option.at(1),
-				text(..option.at(0),
-					if option.at(2) {
-						underline[#str]
+			// hack for trailing whitespace
+			str = str.replace(regex("([ \t]+)$"), m => m.captures.at(0) + "\u{200b}")
+			box(..option.bg,
+				text(..option.text,
+					if option.ul {
+						if option.ol {
+							overline(underline[#str])
+						} else {
+							underline[#str]
+						}
 					} else {
-						[#str]
+						if option.ol {
+							overline[#str]
+						} else {
+							[#str]
+						}
 					}
 				)
 			)
-			// fill trailing spaces
-			let s = str.find(regex("[ \t]+$"))
-			if s != none {
-				h(1em * s.len())
-			}
 			// fill trailing newlines
 			let s =	str.find(regex("\n+$"))
 			if s != none {
@@ -153,3 +179,11 @@ Cell \u{001b}[1;32mIn[9], line 1\u{001b}[0m
 
 \u{001b}[1;31mNameError\u{001b}[0m: name 'this_will_error' is not defined"
 )
+
+#ansi_render(read("test.txt"))
+
+#ansi_render(
+"\u{1b}[53;4;36mOver and \u{1b}[35mUnder!"
+)
+
+#overline("Overline \u{200b}")
