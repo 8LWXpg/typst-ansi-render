@@ -75,12 +75,14 @@
 		let (opt_text, opt_bg) = ((:), (:))
 		let ul = none
 		let ol = none
+		let reverse = none
 		for i in opt {
 			if i == "0" {
 				opt_text += match_text.default
 				opt_bg += match_bg.default
 				ul = false
 				ol = false
+				reverse = false
 			} else if i in match_bg.keys() {
 				opt_bg += match_bg.at(i)
 			} else if i in match_text.keys() {
@@ -93,9 +95,13 @@
 				ol = true
 			} else if i == "55" {
 				ol = false
+			} else if i == "7" {
+				reverse = true
+			} else if i == "27" {
+				reverse = false
 			}
 		}
-		(text: opt_text, bg: opt_bg, ul: ul, ol: ol)
+		(text: opt_text, bg: opt_bg, ul: ul, ol: ol, reverse: reverse)
 	}
 
 	let parse_option(body) = {
@@ -128,15 +134,19 @@
 		text: match_text.default,
 		bg: match_bg.default,
 		ul: false,
-		ol: false
+		ol: false,
+		reverse: false
 	)
 	rect(..(match_bg.default),
 		for (str, opt) in parse_option(body) {
-			// TODO: support option 7,27 (reverse, no reverse)
 			// TODO: support option 38,48 (foreground, background color)
 			let m = match_options(opt)
 			option.text += m.text
 			option.bg += m.bg
+			if m.reverse != none { option.reverse = m.reverse }
+			if option.reverse {
+				(option.text.fill, option.bg.fill) = (option.bg.fill, option.text.fill)
+			}
 			if m.ul != none { option.ul = m.ul }
 			if m.ol != none { option.ol = m.ol }
 
@@ -172,18 +182,10 @@
 }
 
 #ansi_render(
-"\u{001b}[1;31m----------------------------------------------------------------------\u{001b}[0m
-\u{001b}[1;31mNameError\u{001b}[0m                            Traceback (most recent call last)
-Cell \u{001b}[1;32mIn[9], line 1\u{001b}[0m
-\u{001b}[1;32m----> 1\u{001b}[0m this_will_error
+"\u{1b}[31;1mHello \u{1b}[7mWorld\u{1b}[0m
 
-\u{001b}[1;31mNameError\u{001b}[0m: name 'this_will_error' is not defined"
+\u{1b}[53;4;36mOver and \u{1b}[35mUnder!
+\u{1b}[7;90mreverse\u{1b}[101m and \u{1b}[94;27mreverse"
 )
 
 #ansi_render(read("test.txt"))
-
-#ansi_render(
-"\u{1b}[53;4;36mOver and \u{1b}[35mUnder!"
-)
-
-#overline("Overline \u{200b}")
