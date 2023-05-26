@@ -1,5 +1,27 @@
 // themes
 #let themes = (
+	// vscode terminal theme
+	vscode: (
+		black: rgb(0, 0, 0),
+		red: rgb(205, 49, 49),
+		green: rgb(13, 188, 121),
+		yellow: rgb(229, 229, 16),
+		blue: rgb(36, 114, 200),
+		magenta: rgb(188, 63, 188),
+		cyan: rgb(17, 168, 205),
+		white: rgb(229, 229, 229),
+		gray: rgb(102, 102, 102),
+		lightred: rgb(214, 76, 76),
+		lightgreen: rgb(35, 209, 139),
+		lightyellow: rgb(245, 245, 67),
+		lightblue: rgb(59, 142, 234),
+		lightmagenta: rgb(214, 112, 214),
+		lightcyan: rgb(41, 184, 219),
+		lightwhite: rgb(229, 229, 229),
+		default_text: rgb(229, 229, 229), // white
+		default_bg: rgb(0, 0, 0), // black
+	),
+
 	// putty terminal theme
 	putty: (
 		black: rgb(0, 0, 0),
@@ -18,13 +40,13 @@
 		lightmagenta: rgb(255, 0, 255),
 		lightcyan: rgb(0, 255, 255),
 		lightwhite: rgb(255, 255, 255),
-		default_text: rgb(187, 187, 187),
-		default_bg: rgb(0, 0, 0)
-	)
+		default_text: rgb(187, 187, 187), // white
+		default_bg: rgb(0, 0, 0), // black
+	),
 )
 
 // ansi rendering function
-#let ansi_render(body, font: "consolas", theme: themes.putty) = {
+#let render(body, font: "consolas", theme: themes.vscode) = {
 	// dict with text style
 	let match_text = (
 		"1": (weight: "bold"),
@@ -72,34 +94,77 @@
 	)
 
 	let match_options(opt) = {
+		// parse 38;5 48;5
+		let parse_8bit_color(num) = {
+			num = int(num)
+			let colors = (0, 95, 135, 175, 215, 255)
+			if num <= 7 { match_text.at(str(num+30)) }
+			else if num <= 15 { match_bg.at(str(num+32)) }
+			else if num <= 231 {
+				num -= 16
+				let (r, g, b) = (colors.at(int(num/36)), colors.at(calc.rem(int(num/6),6)), colors.at(calc.rem(num,6)))
+				(fill: rgb(r, g, b))
+			} else {
+				num -= 232
+				let (r, g, b) = (8+10*num, 8+10*num, 8+10*num)
+				(fill: rgb(r, g, b))
+			}
+		}
+
 		let (opt_text, opt_bg) = ((:), (:))
-		let ul = none
-		let ol = none
-		let reverse = none
+		let (ul, ol, reverse, last) = (none, none, none, none)
+		let count = 0
+		let color = (0, 0, 0)
+
 		for i in opt {
-			if i == "0" {
+			if last == "382" or last =="482" {
+				color.at(count) = int(i)
+				count += 1
+				if count == 3 {
+					if last == "382" { opt_text += (fill: rgb(..color)) }
+					else { opt_bg += (fill: rgb(..color)) }
+					count = 0
+					last = none
+				}
+				continue
+			}
+			else if last == "385" {
+				opt_text += parse_8bit_color(i)
+				last = none
+				continue
+			}
+			else if last == "485" {
+				opt_bg += parse_8bit_color(i)
+				last = none
+				continue
+			}
+			else if i == "0" {
 				opt_text += match_text.default
 				opt_bg += match_bg.default
 				ul = false
 				ol = false
 				reverse = false
-			} else if i in match_bg.keys() {
-				opt_bg += match_bg.at(i)
-			} else if i in match_text.keys() {
-				opt_text += match_text.at(i)
-			} else if i == "4" {
-				ul = true
-			} else if i == "24" {
-				ul = false
-			} else if i == "53" {
-				ol = true
-			} else if i == "55" {
-				ol = false
-			} else if i == "7" {
-				reverse = true
-			} else if i == "27" {
-				reverse = false
 			}
+			else if i in match_bg.keys() { opt_bg += match_bg.at(i) }
+			else if i in match_text.keys() { opt_text += match_text.at(i) }
+			else if i == "4" { ul = true }
+			else if i == "24" { ul = false }
+			else if i == "53" { ol = true }
+			else if i == "55" { ol = false }
+			else if i == "7" { reverse = true }
+			else if i == "27" { reverse = false }
+			else if i == "38" or i == "48" {
+				last = i
+				continue
+			}
+			else if i == "2" or i == "5" {
+				if last == "38" or last == "48" {
+					last += i
+					count = 0
+					continue
+				}
+			}
+			last = none
 		}
 		(text: opt_text, bg: opt_bg, ul: ul, ol: ol, reverse: reverse)
 	}
@@ -150,12 +215,13 @@
 			if m.ul != none { option.ul = m.ul }
 			if m.ol != none { option.ol = m.ol }
 
-			// hack for trailing whitespace
+			// hack for under/overline trailing whitespace
 			str = str.replace(regex("([ \t]+)$"), m => m.captures.at(0) + "\u{200b}")
 			box(..option.bg,
 				text(..option.text,
 					if option.ul {
 						if option.ol {
+							let s = str.find(regex("([ \t]+)$"))
 							overline(underline[#str])
 						} else {
 							underline[#str]
@@ -180,12 +246,3 @@
 		}
 	)
 }
-
-#ansi_render(
-"\u{1b}[31;1mHello \u{1b}[7mWorld\u{1b}[0m
-
-\u{1b}[53;4;36mOver and \u{1b}[35mUnder!
-\u{1b}[7;90mreverse\u{1b}[101m and \u{1b}[94;27mreverse"
-)
-
-#ansi_render(read("test.txt"))
