@@ -46,7 +46,7 @@
 )
 
 // ansi rendering function
-#let render(body, font: "consolas", size: 11pt, theme: themes.vscode) = {
+#let ansi_render(body, font: "consolas", size: 11pt, theme: themes.vscode) = {
 	// dict with text style
 	let match_text = (
 		"1": (weight: "bold"),
