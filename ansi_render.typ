@@ -1,4 +1,4 @@
-// themes
+// add your theme here!
 #let themes = (
 	// vscode terminal theme
 	vscode: (
@@ -60,7 +60,7 @@
 		"35": (fill: theme.magenta),
 		"36": (fill: theme.cyan),
 		"37": (fill: theme.white),
-		"39": (fill: theme.default_text), // default text theme
+		"39": (fill: theme.default_text),
 		"90": (fill: theme.gray),
 		"91": (fill: theme.lightred),
 		"92": (fill: theme.lightgreen),
@@ -81,7 +81,7 @@
 		"45": (fill: theme.magenta),
 		"46": (fill: theme.cyan),
 		"47": (fill: theme.white),
-		"49": (fill: theme.default_bg), // default bg theme
+		"49": (fill: theme.default_bg),
 		"100": (fill: theme.gray),
 		"101": (fill: theme.lightred),
 		"102": (fill: theme.lightgreen),
@@ -116,6 +116,7 @@
 		let count = 0
 		let color = (0, 0, 0)
 
+		// match options
 		for i in opt {
 			if last == "382" or last =="482" {
 				color.at(count) = int(i)
