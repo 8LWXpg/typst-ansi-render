@@ -9,3 +9,7 @@ This script provides a simple way to render text with ANSI escape sequences in a
 
 ansi_render.render(body, font: font, theme: ansi_render.themes)
 ```
+
+## Demo
+
+see [demo.pdf](https://github.com/8LWXpg/typst-ansi_render/blob/master/demo.pdf)
