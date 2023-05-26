@@ -46,7 +46,7 @@
 )
 
 // ansi rendering function
-#let render(body, font: "consolas", theme: themes.vscode) = {
+#let render(body, font: "consolas", size: 11pt, theme: themes.vscode) = {
 	// dict with text style
 	let match_text = (
 		"1": (weight: "bold"),
@@ -192,7 +192,7 @@
 		arr
 	}
 
-	set text(..(match_text.default), font: font, top-edge: "ascender", bottom-edge: "descender")
+	set text(..(match_text.default), font: font, size: size, top-edge: "ascender", bottom-edge: "descender")
 	set par(leading: 0em)
 
 	let option = (
@@ -204,7 +204,6 @@
 	)
 	rect(..(match_bg.default),
 		for (str, opt) in parse_option(body) {
-			// TODO: support option 38,48 (foreground, background color)
 			let m = match_options(opt)
 			option.text += m.text
 			option.bg += m.bg
