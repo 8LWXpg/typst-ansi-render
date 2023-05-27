@@ -7,9 +7,9 @@ contribution is welcomed!
 ## Usage
 
 ```typst
-#import "ansi_render.typ"
+#import "ansi_render.typ": *
 
-ansi_render.render(body, font: font, theme: ansi_render.themes)
+#render(body, font: string, size: length, theme: ansi_render.themes)
 ```
 
 ## Demo
