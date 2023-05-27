@@ -1,6 +1,6 @@
 # ANSI Escape Sequence Renderer
 
-This script provides a simple way to render text with ANSI escape sequences in a terminal. It uses the `ansi_render` function from the `ansi_render.typ` module to render text with various formatting options, including foreground and background colors, bold and underlined text, and inverted text.
+This script provides a simple way to render text with ANSI escape sequences. It uses the `ansi_render` function from the `ansi_render.typ` module to render text with various formatting options, including font, font size and theme.
 
 contribution is welcomed!
 
@@ -9,7 +9,7 @@ contribution is welcomed!
 ```typst
 #import "ansi_render.typ": *
 
-#ansi_render(body, font: string, size: length, theme: ansi_render.themes)
+#ansi_render(body, font: string, size: length, theme: themes.theme)
 ```
 
 ## Demo
