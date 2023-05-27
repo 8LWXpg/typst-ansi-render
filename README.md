@@ -9,7 +9,7 @@ contribution is welcomed!
 ```typst
 #import "ansi_render.typ": *
 
-#render(body, font: string, size: length, theme: ansi_render.themes)
+#ansi_render(body, font: string, size: length, theme: ansi_render.themes)
 ```
 
 ## Demo
