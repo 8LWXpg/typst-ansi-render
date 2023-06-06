@@ -203,46 +203,41 @@
 		ol: false,
 		reverse: false
 	)
-	rect(..(match_bg.default),
-		for (str, opt) in parse_option(body) {
-			let m = match_options(opt)
-			option.text += m.text
-			option.bg += m.bg
-			if m.reverse != none { option.reverse = m.reverse }
-			if option.reverse {
-				(option.text.fill, option.bg.fill) = (option.bg.fill, option.text.fill)
-			}
-			if m.ul != none { option.ul = m.ul }
-			if m.ol != none { option.ol = m.ol }
-
-			// hack for under/overline trailing whitespace
-			str = str.replace(regex("([ \t]+)$"), m => m.captures.at(0) + "\u{200b}")
-			box(..option.bg,
-				text(..option.text,
-					if option.ul {
-						if option.ol {
-							let s = str.find(regex("([ \t]+)$"))
-							overline(underline[#str])
-						} else {
-							underline[#str]
-						}
-					} else {
-						if option.ol {
-							overline[#str]
-						} else {
-							[#str]
-						}
-					}
-				)
-			)
-			// fill trailing newlines
-			let s =	str.find(regex("\n+$"))
-			if s != none {
-				for i in s {
-					linebreak()
-				}
-			}
-
+	show: c => rect(..(match_bg.default), c)
+	for (str, opt) in parse_option(body) {
+		let m = match_options(opt)
+		option.text += m.text
+		option.bg += m.bg
+		if m.reverse != none { option.reverse = m.reverse }
+		if option.reverse {
+			(option.text.fill, option.bg.fill) = (option.bg.fill, option.text.fill)
 		}
-	)
+		if m.ul != none { option.ul = m.ul }
+		if m.ol != none { option.ol = m.ol }
+
+		// hack for under/overline trailing whitespace
+		str = str.replace(regex("([ \t]+)$"), m => m.captures.at(0) + "\u{200b}")
+		{
+			show: c => box(..option.bg, c)
+			show: c => text(..option.text, c)
+			show: c => if option.ul {
+				underline(c)
+			} else {
+				c
+			}
+			show: c => if option.ol {
+				overline(c)
+			} else {
+				c
+			}
+			[#str]
+		}
+		// fill trailing newlines
+		let s =	str.find(regex("\n+$"))
+		if s != none {
+			for i in s {
+				linebreak()
+			}
+		}
+	}
 }
