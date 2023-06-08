@@ -29,3 +29,14 @@
 
 // uses the font supports ligatures
 #ansi_render(read("test.txt"), font: "CaskaydiaCove Nerd Font Mono", theme: themes.putty)
+
+
+#ansi_render(read("color.txt"), size: 10pt, theme: themes.Campbell)
+#ansi_render(read("color.txt"), size: 10pt, theme: themes.at("Campbell Powershell"))
+#ansi_render(read("color.txt"), size: 10pt, theme: themes.Vintage)
+#ansi_render(read("color.txt"), size: 10pt, theme: themes.at("One Half Dark"))
+#ansi_render(read("color.txt"), size: 10pt, theme: themes.at("One Half Light"))
+#ansi_render(read("color.txt"), size: 10pt, theme: themes.at("Solarized Dark"))
+#ansi_render(read("color.txt"), size: 10pt, theme: themes.at("Solarized Light"))
+#ansi_render(read("color.txt"), size: 10pt, theme: themes.at("Tango Dark"))
+#ansi_render(read("color.txt"), size: 10pt, theme: themes.at("Tango Light"))
