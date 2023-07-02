@@ -1,5 +1,5 @@
 // add your theme here!
-#let themes = (
+#let terminal_themes = (
 	// vscode terminal theme
 	vscode: (
 		black: rgb(0, 0, 0),
@@ -236,7 +236,7 @@
 )
 
 // ansi rendering function
-#let ansi_render(body, font: "consolas", size: 11pt, theme: themes.vscode) = {
+#let ansi_render(body, font: "consolas", size: 11pt, theme: terminal_themes.vscode) = {
 	// dict with text style
 	let match_text = (
 		"1": (weight: "bold"),

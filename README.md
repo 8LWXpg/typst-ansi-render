@@ -7,11 +7,17 @@ contribution is welcomed!
 ## Usage
 
 ```typst
-#import "ansi_render.typ": *
-
 #ansi_render(body, font: string, size: length, theme: themes.theme)
 ```
 
 ## Demo
 
 see [demo.typ](https://github.com/8LWXpg/typst-ansi_render/blob/master/demo.typ) [demo.pdf](https://github.com/8LWXpg/typst-ansi_render/blob/master/demo.pdf)
+
+![1.png](img/1.png)
+
+![2.png](img/2.png)
+
+![3.png](img/3.png)
+
+![4.png](img/4.png)
