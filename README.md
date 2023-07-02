@@ -14,10 +14,10 @@ contribution is welcomed!
 
 see [demo.typ](https://github.com/8LWXpg/typst-ansi_render/blob/master/demo.typ) [demo.pdf](https://github.com/8LWXpg/typst-ansi_render/blob/master/demo.pdf)
 
-![1.png](img/1.png)
+![1.png](https://github.com/8LWXpg/typst-ansi_render/blob/master/img/1.png)
 
-![2.png](img/2.png)
+![2.png](https://github.com/8LWXpg/typst-ansi_render/blob/master/img/2.png)
 
-![3.png](img/3.png)
+![3.png](https://github.com/8LWXpg/typst-ansi_render/blob/master/img/3.png)
 
-![4.png](img/4.png)
+![4.png](https://github.com/8LWXpg/typst-ansi_render/blob/master/img/4.png)
