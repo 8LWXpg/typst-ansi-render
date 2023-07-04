@@ -27,6 +27,7 @@ see [demo.typ](https://github.com/8LWXpg/typst-ansi_render/blob/master/demo.typ)
 "
 )
 ```
+
 ![1.png](https://github.com/8LWXpg/typst-ansi_render/blob/master/img/1.png)
 
 ```typst
@@ -40,6 +41,7 @@ see [demo.typ](https://github.com/8LWXpg/typst-ansi_render/blob/master/demo.typ)
 \u{1b}[38;5;255;48;5;0mWhite text on black background\u{1b}[0m"
 )
 ```
+
 ![2.png](https://github.com/8LWXpg/typst-ansi_render/blob/master/img/2.png)
 
 ```typst
@@ -50,10 +52,12 @@ see [demo.typ](https://github.com/8LWXpg/typst-ansi_render/blob/master/demo.typ)
 \u{1b}[7;90mreverse\u{1b}[101m and \u{1b}[94;27mreverse"
 )
 ```
+
 ![3.png](https://github.com/8LWXpg/typst-ansi_render/blob/master/img/3.png)
 
 ```typst
 // uses the font supports ligatures
 #ansi_render(read("test.txt"), font: "CaskaydiaCove Nerd Font Mono", theme: terminal_themes.putty)
 ```
+
 ![4.png](https://github.com/8LWXpg/typst-ansi_render/blob/master/img/4.png)
