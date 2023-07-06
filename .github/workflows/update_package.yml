@@ -15,7 +15,7 @@ jobs:
       uses: WyriHaximus/github-action-get-previous-tag@v1
 
     - name: Copy files to another repository
-      uses: nkoppel/push-files-to-another-repository@1.1.1
+      uses: nkoppel/push-files-to-another-repository@v1.1.1
       env:
           API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
       with:
