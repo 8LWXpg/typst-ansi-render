@@ -1,0 +1,30 @@
+name: Update package
+
+on:
+  workflow_dispatch:
+
+jobs:
+  copy_file:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout source repository
+      uses: actions/checkout@v2
+      
+    - name: Get Previous tag
+      id: previoustag
+      uses: WyriHaximus/github-action-get-previous-tag@v1
+
+    - name: Copy files to another repository
+      uses: andstor/copycat-action@v3
+      with:
+        personal_token: ${{ secrets.PERSONAL_TOKEN }}
+        src_path: |
+          - LICENSE
+          - README.md
+          - ansi_render.typ
+          - typst.toml
+        dst_path: /preview/ansi-render:${{ steps.previoustag.outputs.tag }}
+        dst_owner: 8LWXpg
+        dst_repo_name: packages
+        dst_branch: main
+        commit_message: update to ${{ steps.previoustag.outputs.tag }}
