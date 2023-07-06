@@ -22,7 +22,7 @@ jobs:
         source-files: LICENSE README.md ansi_render.typ typst.toml
         destination-username: 8LWXpg
         destination-repository: packages
-        dst_branch: main
+        destination-branch: main
         destination-directory: /preview/ansi-render:${{ steps.previoustag.outputs.tag }}
         commit-email: v3ak6xhthk@gmail.com
         commit-message: anis-render:${{ steps.previoustag.outputs.tag }}
