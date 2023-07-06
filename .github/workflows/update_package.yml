@@ -23,6 +23,6 @@ jobs:
         destination-username: 8LWXpg
         destination-repository: packages
         destination-branch: main
-        destination-directory: /preview/ansi-render:${{ steps.tag.outputs.tag }}
+        destination-directory: "/preview/ansi-render:${{ steps.tag.outputs.tag }}"
         commit-email: v3ak6xhthk@gmail.com
         commit-message: anis-render:${{ steps.tag.outputs.tag }}
