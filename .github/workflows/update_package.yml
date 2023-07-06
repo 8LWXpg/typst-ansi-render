@@ -12,9 +12,7 @@ jobs:
       
     - name: Get current git tag
       id: tag
-      uses: devops-actions/action-get-tag@v1.0.2
-      with:
-        strip_v: true
+      uses: JinoArch/get-latest-tag@latest
 
     - name: Copy files to another repository
       uses: nkoppel/push-files-to-another-repository@v1.1.1
