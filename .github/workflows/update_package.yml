@@ -15,16 +15,14 @@ jobs:
       uses: WyriHaximus/github-action-get-previous-tag@v1
 
     - name: Copy files to another repository
-      uses: andstor/copycat-action@v3
+      uses: nkoppel/push-files-to-another-repository@v1
+      env:
+          API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
       with:
-        personal_token: ${{ secrets.PERSONAL_TOKEN }}
-        src_path: |
-          - LICENSE
-          - README.md
-          - ansi_render.typ
-          - typst.toml
-        dst_path: /preview/ansi-render:${{ steps.previoustag.outputs.tag }}
-        dst_owner: 8LWXpg
-        dst_repo_name: packages
+        source-files: LICENSE README.md ansi_render.typ typst.toml
+        destination-username: 8LWXpg
+        destination-repository: packages
         dst_branch: main
-        commit_message: update to ${{ steps.previoustag.outputs.tag }}
+        destination-directory: /preview/ansi-render:${{ steps.previoustag.outputs.tag }}
+        commit-email: v3ak6xhthk@gmail.com
+        commit-message: anis-render:${{ steps.previoustag.outputs.tag }}
