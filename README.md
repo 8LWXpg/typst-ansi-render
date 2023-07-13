@@ -1,5 +1,16 @@
 # ANSI Escape Sequence Renderer
 
+<img alt="GitHub manifest version (path)" src="https://img.shields.io/github/v/tag/8LWXpg/typst-ansi_render">
+<a href="https://github.com/8LWXpg/typst-ansi_render">
+  <img src="https://img.shields.io/github/stars/8LWXpg/typst-ansi_render" alt="GitHub Repo stars">
+</a>
+<a href="https://github.com/8LWXpg/typst-ansi_render/blob/master/LICENSE">
+  <img alt="GitHub" src="https://img.shields.io/github/license/8LWXpg/typst-ansi_render">
+</a>
+<a href="https://github.com/typst/packages/tree/main/packages/preview/ansi-render-0.1.0">
+  <img src="https://img.shields.io/badge/typst-package-green" alt="GitHub code size in bytes">
+</a>
+
 This script provides a simple way to render text with ANSI escape sequences. It uses the `ansi_render` function from the `ansi_render.typ` module to render text with various formatting options, including font, font size and theme.
 
 contribution is welcomed!
