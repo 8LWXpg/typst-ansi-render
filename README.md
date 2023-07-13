@@ -1,6 +1,8 @@
 # ANSI Escape Sequence Renderer
 
-<img alt="GitHub manifest version (path)" src="https://img.shields.io/github/v/tag/8LWXpg/typst-ansi_render">
+<a href="https://github.com/8LWXpg/typst-ansi_render/tags">
+  <img alt="GitHub manifest version (path)" src="https://img.shields.io/github/v/tag/8LWXpg/typst-ansi_render">
+</a>
 <a href="https://github.com/8LWXpg/typst-ansi_render">
   <img src="https://img.shields.io/github/stars/8LWXpg/typst-ansi_render" alt="GitHub Repo stars">
 </a>
