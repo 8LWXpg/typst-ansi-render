@@ -425,7 +425,7 @@
       [#str]
     }
     // fill trailing newlines
-    let s =  str.find(regex("\n+$"))
+    let s = str.find(regex("\n+$"))
     if s != none {
       for i in s {
         linebreak()
