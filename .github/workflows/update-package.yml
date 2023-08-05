@@ -43,3 +43,4 @@ jobs:
       uses: "marvinpinto/action-automatic-releases@latest"
       with:
         repo_token: ${{ secrets.GITHUB_TOKEN }}
+        automatic_release_tag: ${{ needs.push.outputs.parsed_tag.tag }}
