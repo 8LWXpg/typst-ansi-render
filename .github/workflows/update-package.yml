@@ -1,0 +1,41 @@
+name: Update package
+
+on:
+  workflow_dispatch:
+
+jobs:
+  push:
+    name: push to package
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+      with:
+        fetch-depth: 0
+
+    - name: get latest tag
+      id: latest_tag
+      uses: WyriHaximus/github-action-get-previous-tag@v1
+
+    - name: push
+      uses: andstor/copycat-action@v3
+      with:
+        personal_token: ${{ secrets.PERSONAL_TOKEN }}
+        src_path: ansi-render.typ LICENSE README.md typst.toml
+        dst_owner: ${{ github.repository_owner }}
+        dst_repo_name: package
+        dst_path: packages/preview/ansi-render/${{ steps.latest_tag.outputs.tag }}
+
+  release:
+    name: release package
+    needs: push
+    runs-on: ubuntu-latest
+    steps:
+    - name: get latest tag
+      id: latest_tag
+      uses: WyriHaximus/github-action-get-previous-tag@v1
+
+    - name: create release
+      uses: "marvinpinto/action-automatic-releases@latest"
+      with:
+        repo_token: ${{ secrets.GITHUB_TOKEN }}
+        automatic_release_tag: ${{ steps.latest_tag.outputs.tag }}
