@@ -6,7 +6,7 @@ on:
 jobs:
   push:
     outputs:
-      parsed_tag: ${{ steps.parsed_tag.outputs.tag }}
+      tag: ${{ steps.latest_tag.outputs.tag }}
     name: push to package
     runs-on: ubuntu-latest
     steps:
@@ -45,4 +45,4 @@ jobs:
       uses: "marvinpinto/action-automatic-releases@latest"
       with:
         repo_token: ${{ secrets.GITHUB_TOKEN }}
-        automatic_release_tag: ${{ needs.push.outputs.parsed_tag }}
+        automatic_release_tag: ${{ needs.push.outputs.tag }}
