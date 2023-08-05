@@ -35,14 +35,3 @@ jobs:
         destination-repository: packages
         destination-directory: packages/preview/ansi-render/${{ steps.parsed_tag.outputs.tag }}
         destination-branch: main
-
-  release:
-    name: release package
-    needs: push
-    runs-on: ubuntu-latest
-    steps:
-    - name: create release
-      uses: "marvinpinto/action-automatic-releases@latest"
-      with:
-        repo_token: ${{ secrets.GITHUB_TOKEN }}
-        automatic_release_tag: ${{ needs.push.outputs.tag }}
