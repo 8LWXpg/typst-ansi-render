@@ -1,5 +1,6 @@
 #import "ansi-render.typ": *
 
+= Render text directly
 #ansi-render(
 "\u{1b}[38;2;255;0;0mThis text is red.\u{1b}[0m
 \u{1b}[48;2;0;255;0mThis background is green.\u{1b}[0m
@@ -27,16 +28,32 @@
 \u{1b}[7;90mreverse\u{1b}[101m and \u{1b}[94;27mreverse"
 )
 
-// uses the font supports ligatures
+= Render text from a file
+#ansi-render(read("test.txt"))
+
+= Uses the font supports ligatures
 #ansi-render(read("test.txt"), font: "CaskaydiaCove Nerd Font Mono", theme: terminal-themes.putty)
 
-
+= List of built-in themes
+== VSCode
+#ansi-render(read("color.txt"), size: 10pt, theme: terminal-themes.vscode)
+== Putty
+#ansi-render(read("color.txt"), size: 10pt, theme: terminal-themes.putty)
+== Campbell
 #ansi-render(read("color.txt"), size: 10pt, theme: terminal-themes.campbell)
+== Campbell Powershell
 #ansi-render(read("color.txt"), size: 10pt, theme: terminal-themes.campbell-powershell)
+== Vintage
 #ansi-render(read("color.txt"), size: 10pt, theme: terminal-themes.vintage)
+== One Half Dark
 #ansi-render(read("color.txt"), size: 10pt, theme: terminal-themes.one-half-dark)
+== One Half Light
 #ansi-render(read("color.txt"), size: 10pt, theme: terminal-themes.one-half-light)
+== Solarized Dark
 #ansi-render(read("color.txt"), size: 10pt, theme: terminal-themes.solarized-dark)
+== Solarized Light
 #ansi-render(read("color.txt"), size: 10pt, theme: terminal-themes.solarized-light)
+== Tango Dark
 #ansi-render(read("color.txt"), size: 10pt, theme: terminal-themes.tango-dark)
+== Tango Light
 #ansi-render(read("color.txt"), size: 10pt, theme: terminal-themes.tango-light)
