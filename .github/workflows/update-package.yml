@@ -1,5 +1,6 @@
 name: Update package
 
+# push a new tag before running this action
 on:
   workflow_dispatch:
 
