@@ -28,7 +28,7 @@ jobs:
         API_TOKEN_GITHUB: ${{ secrets.PERSONAL_TOKEN }}
       with:
         commit-email: v3ak6xhthk@gmail.com
-        source-files: ansi-render.typ LICENSE README.md typst.toml
+        source-files: ansi-render.typ CHANGELOG.md LICENSE README.md typst.toml
         destination-username: ${{ github.repository_owner }}
         destination-repository: packages
         destination-directory: packages/preview/ansi-render/${{ steps.parsed_tag.outputs.tag }}

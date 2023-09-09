@@ -236,7 +236,7 @@
 )
 
 // ansi rendering function
-#let ansi-render(body, font: "consolas", size: 11pt, theme: terminal-themes.vscode) = {
+#let ansi-render(body, font: "Cascadia Code", size: 10pt, radius: 3pt,theme: terminal-themes.solarized-light) = {
   // dict with text style
   let match-text = (
     "1": (weight: "bold"),
@@ -393,7 +393,7 @@
     ol: false,
     reverse: false
   )
-  show: c => rect(..(match-bg.default), c)
+  show: c => rect(..(match-bg.default), radius: radius, c)
   // work around for rendering first line without escape sequence
   body = "\u{1b}[0m" + body
   for (str, opt) in parse-option(body) {
