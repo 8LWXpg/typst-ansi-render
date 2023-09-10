@@ -10,17 +10,52 @@
   <img alt="GitHub" src="https://img.shields.io/github/license/8LWXpg/typst-ansi-render">
 </a>
 
-This script provides a simple way to render text with ANSI escape sequences. It uses the `ansi-render` function from the `ansi-render.typ` module to render text with various formatting options, including font, font size and theme.
+This script provides a simple way to render text with ANSI escape sequences. Package `ansi-render` provides a function `ansi-render`, and a dictionary of themes `terminal-themes`.
 
 contribution is welcomed!
 
 ## Usage
 
 ```typst
-#import "@preview/ansi-render:0.3.0": *
+#import "@preview/ansi-render:0.4.0": *
 
-#ansi-render(string, font: string, size: length, radius: length or dict, theme: terminal-themes.theme)
+#ansi-render(
+  string,
+  font:       string,
+  size:       length,
+  width:      auto or relative length,
+  height:     auto or relative length,
+  breakable:  boolean,
+  radius:     relative length or dictionary,
+  inset:      relative length or dictionary,
+  outset:     relative length or dictionary,
+  spacing:    relative length or fraction,
+  above:      relative length or fraction,
+  below:      relative length or fraction,
+  clip:       boolean,
+  theme:      terminal-themes.theme,
+)
 ```
+
+### Parameters
+
+most parameters comes from [`block`]([https://](https://typst.app/docs/reference/layout/block/)) function, adjust the layout outmost block.
+
+- `string` - string with ANSI escape sequences
+- `font` - font name, default is `Cascadia Code`
+- `size` - font size, default is `10pt`
+- `theme` - theme, default is `Solarized Light`
+- parameters from [`block`]([https://](https://typst.app/docs/reference/layout/block/)) function with the same default value:
+  - `width`
+  - `height`
+  - `breakable`
+  - `radius`
+  - `inset`
+  - `outset`
+  - `spacing`
+  - `above`
+  - `below`
+  - `clip`
 
 ## Demo
 

@@ -1,5 +1,15 @@
 # Changelog 📝
 
+## [0.4.0] - <!-- TODO -->
+
+### Added
+
+* Added most options from [`block`]([https://](https://typst.app/docs/reference/layout/block/)) function
+
+### Changed
+
+* Changed outmost layout from `rect` to `block`
+
 ## [0.3.0] - 2023-09-09
 
 ### Added
