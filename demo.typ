@@ -46,6 +46,8 @@ theme: terminal-themes.vscode
 = List of built-in themes
 == VSCode
 #ansi-render(read("color.txt"), size: 8pt, inset: 5pt, radius: 3pt, theme: terminal-themes.vscode)
+== VSCode Light
+#ansi-render(read("color.txt"), size: 8pt, inset: 5pt, radius: 3pt, theme: terminal-themes.vscode-light)
 == Putty
 #ansi-render(read("color.txt"), size: 8pt, inset: 5pt, radius: 3pt, theme: terminal-themes.putty)
 == Campbell

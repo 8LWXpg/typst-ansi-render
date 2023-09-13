@@ -5,10 +5,12 @@
 ### Added
 
 * Added most options from [`block`]([https://](https://typst.app/docs/reference/layout/block/)) function
+* Added `vscode-light` theme
 
 ### Changed
 
 * Changed outmost layout from `rect` to `block`
+* Changed default theme to `VSCode Light`
 
 ## [0.3.0] - 2023-09-09
 

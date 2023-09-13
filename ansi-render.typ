@@ -22,6 +22,28 @@
     default-bg: rgb(0, 0, 0), // black
   ),
 
+  // vscode light theme
+  vscode-light: (
+    black: rgb("#F8F8F8"),
+    red: rgb("#CD3131"),
+    green: rgb("#00BC00"),
+    yellow: rgb("#949800"),
+    blue: rgb("#0451A5"),
+    magenta: rgb("#BC05BC"),
+    cyan: rgb("#0598BC"),
+    white: rgb("#555555"),
+    gray: rgb("#666666"),
+    bright-red: rgb("#CD3131"),
+    bright-green: rgb("#14CE14"),
+    bright-yellow: rgb("#B5BA00"),
+    bright-blue: rgb("#0451A5"),
+    bright-magenta: rgb("#BC05BC"),
+    bright-cyan: rgb("#0598BC"),
+    bright-white: rgb("#A5A5A5"),
+    default-text: rgb("#A5A5A5"), // white
+    default-bg: rgb("#F8F8F8"), // black
+  ),
+
   // putty terminal theme
   putty: (
     black: rgb(0, 0, 0),
@@ -250,7 +272,7 @@
   above: 1.2em,
   below: 1.2em,
   clip: false,
-  theme: terminal-themes.solarized-light) = {
+  theme: terminal-themes.vscode-light) = {
   // dict with text style
   let match-text = (
     "1": (weight: "bold"),
@@ -407,7 +429,7 @@
     ol: false,
     reverse: false
   )
-  show: c => block(
+  show: block.with(
     ..(match-bg.default),
     width: width,
     height: height,
@@ -419,7 +441,6 @@
     above: above,
     below: below,
     clip: clip,
-    c
   )
   // work around for rendering first line without escape sequence
   body = "\u{1b}[0m" + body
@@ -428,17 +449,15 @@
     option.text += m.text
     option.bg += m.bg
     if m.reverse != none { option.reverse = m.reverse }
-    if option.reverse {
-      (option.text.fill, option.bg.fill) = (option.bg.fill, option.text.fill)
-    }
+    if option.reverse { (option.text.fill, option.bg.fill) = (option.bg.fill, option.text.fill) }
     if m.ul != none { option.ul = m.ul }
     if m.ol != none { option.ol = m.ol }
 
-    // hack for under/overline trailing whitespace
+    // work around for trailing whitespace with under/overline
     str = str.replace(regex("([ \t]+)$"), m => m.captures.at(0) + "\u{200b}")
     {
-      show: c => box(..option.bg, c)
-      show: c => text(..option.text, c)
+      show: box.with(..option.bg)
+      show: text.with(..option.text)
       show: c => if option.ul {
         underline(c)
       } else {
