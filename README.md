@@ -57,9 +57,13 @@ most parameters comes from [`block`]([https://](https://typst.app/docs/reference
   - `below`
   - `clip`
 
+## Themes
+
+see [themes](https://github.com/8LWXpg/typst-ansi-render/blob/master/test/themes.pdf)
+
 ## Demo
 
-see [demo.typ](https://github.com/8LWXpg/typst-ansi-render/blob/master/demo.typ) [demo.pdf](https://github.com/8LWXpg/typst-ansi-render/blob/master/demo.pdf)
+see [demo.typ](https://github.com/8LWXpg/typst-ansi-render/blob/master/test/demo.typ) [demo.pdf](https://github.com/8LWXpg/typst-ansi-render/blob/master/test/demo.pdf)
 
 ```typst
 #ansi-render(
