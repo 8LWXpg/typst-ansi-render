@@ -1,5 +1,12 @@
 # Changelog 📝
 
+## [0.4.1]
+
+### Changed
+
+* Changed default font size to `9pt`
+* Prevent set from outside of the function
+
 ## [0.4.0] - 2023-09-13
 
 ### Added

@@ -261,7 +261,7 @@
 #let ansi-render(
   body,
   font: "Cascadia Code",
-  size: 10pt,
+  size: 9pt,
   width: auto,
   height: auto,
   breakable: true,
@@ -441,6 +441,18 @@
     above: above,
     below: below,
     clip: clip,
+  )
+  // prevent set from outside of the function
+  set box(
+    width: auto,
+    height: auto,
+    baseline: 0pt,
+    fill: none,
+    stroke: none,
+    radius: 0pt,
+    inset: 0pt,
+    outset: 0pt,
+    clip: false,
   )
   // work around for rendering first line without escape sequence
   body = "\u{1b}[0m" + body

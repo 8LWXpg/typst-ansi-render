@@ -9,7 +9,9 @@
 			"command": "typst",
 			"args": [
 				"w",
-				"demo.typ"
+				"test/demo.typ",
+				"--root",
+				"${workspaceFolder}"
 			],
 			"group": {
 				"kind": "build",

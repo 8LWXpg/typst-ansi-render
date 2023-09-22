@@ -17,7 +17,7 @@ contribution is welcomed!
 ## Usage
 
 ```typst
-#import "@preview/ansi-render:0.4.0": *
+#import "@preview/ansi-render:0.4.1": *
 
 #ansi-render(
   string,
@@ -44,7 +44,7 @@ most parameters comes from [`block`]([https://](https://typst.app/docs/reference
 - `string` - string with ANSI escape sequences
 - `font` - font name, default is `Cascadia Code`
 - `size` - font size, default is `10pt`
-- `theme` - theme, default is `VSCode Light`
+- `theme` - theme, default is `vscode-light`
 - parameters from [`block`]([https://](https://typst.app/docs/reference/layout/block/)) function with the same default value, change to adjust the outmost layout:
   - `width`
   - `height`
