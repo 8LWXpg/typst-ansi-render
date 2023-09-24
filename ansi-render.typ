@@ -255,6 +255,48 @@
     default-text: rgb("#555753"),
     default-bg: rgb("#FFFFFF"),
   ),
+
+  gruvbox-dark: (
+    black: rgb("#282828"),
+    red: rgb("#cc241d"),
+    green: rgb("#98971a"),
+    yellow: rgb("#d79921"),
+    blue: rgb("#458588"),
+    magenta: rgb("#b16286"),
+    cyan: rgb("#689d6a"),
+    white: rgb("#ebdbb2"),
+    gray: rgb("#928374"),
+    bright-red: rgb("#fb4934"),
+    bright-green: rgb("#b8bb26"),
+    bright-yellow: rgb("#fabd2f"),
+    bright-blue: rgb("#83a598"),
+    bright-magenta: rgb("#d3869b"),
+    bright-cyan: rgb("#8ec07c"),
+    bright-white: rgb("#ebdbb2"),
+    default-text: rgb("#ebdbb2"),
+    default-bg: rgb("#282828"),
+  ),
+
+  gruvbox-light: (
+    black: rgb("#3c3836"),
+    red: rgb("#cc241d"),
+    green: rgb("#98971a"),
+    yellow: rgb("#d79921"),
+    blue: rgb("#458588"),
+    magenta: rgb("#b16286"),
+    cyan: rgb("#689d6a"),
+    white: rgb("#fbf1c7"),
+    gray: rgb("#7c6f64"),
+    bright-red: rgb("#9d0006"),
+    bright-green: rgb("#79740e"),
+    bright-yellow: rgb("#b57614"),
+    bright-blue: rgb("#076678"),
+    bright-magenta: rgb("#8f3f71"),
+    bright-cyan: rgb("#427b58"),
+    bright-white: rgb("#fbf1c7"),
+    default-text: rgb("#3c3836"),
+    default-bg: rgb("#fbf1c7"),
+  )
 )
 
 // ansi rendering function

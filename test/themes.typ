@@ -25,3 +25,7 @@
 #ansi-render(read("color.txt"), size: 8pt, inset: 5pt, radius: 3pt, theme: terminal-themes.tango-dark)
 == Tango Light
 #ansi-render(read("color.txt"), size: 8pt, inset: 5pt, radius: 3pt, theme: terminal-themes.tango-light)
+== Gruvbox Dark
+#ansi-render(read("color.txt"), size: 8pt, inset: 5pt, radius: 3pt, theme: terminal-themes.gruvbox-dark)
+== Gruvbox Light
+#ansi-render(read("color.txt"), size: 8pt, inset: 5pt, radius: 3pt, theme: terminal-themes.gruvbox-light)
