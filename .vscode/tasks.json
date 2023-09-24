@@ -17,6 +17,17 @@
 				"kind": "build",
 				"isDefault": true
 			}
+		},
+		{
+			"label": "compile themes",
+			"type": "shell",
+			"command": "typst",
+			"args": [
+				"c",
+				"test/themes.typ",
+				"--root",
+				"${workspaceFolder}"
+			],
 		}
 	]
 }
