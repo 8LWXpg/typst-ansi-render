@@ -1,8 +1,8 @@
-# Contributing to this project
+# Contributing
 
-Thank you for your interest in contributing to My Project! This document outlines the steps you should follow to contribute to the project.
+Thank you for your interest in contributing to this project! This document outlines the steps you should follow to contribute to the project.
 
-## Getting started on adding a new theme
+## Adding a new theme
 
 1. Fork the repository on GitHub.
 2. Add your theme to the `terminal-themes` directory.
