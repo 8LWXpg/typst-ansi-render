@@ -463,8 +463,6 @@
     arr
   }
 
-  // if font != none { match-text.default += (font: font) }
-  // set text(..(match-text.default), size: size, top-edge: "ascender", bottom-edge: "descender")
   if font == none { font = "Cascadia Code" }
   set text(..(match-text.default), size: size, top-edge: "ascender", bottom-edge: "descender", font: font)
   set par(leading: 0em)
