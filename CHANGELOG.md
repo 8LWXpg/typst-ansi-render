@@ -4,11 +4,15 @@
 
 ### Added
 
-* Added `bold-is-bright` option
+* Added `bold-is-bright` option #2
 
 ### Changed
 
-* Allow setting font to none
+* Allow setting font to none #3
+
+### Fixed
+
+* Fixed 8-bit colors 8-15 use the wrong colors #4
 
 ## [0.4.2] - 2023-09-24
 
