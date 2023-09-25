@@ -42,3 +42,22 @@ theme: terminal-themes.vscode
 
 = Uses the font supports ligatures
 #ansi-render(read("test.txt"), font: "CaskaydiaCove Nerd Font Mono", inset: 5pt, radius: 3pt, theme: terminal-themes.putty)
+
+= Render bold text with bright colors
+#let bold-bright-test = "
+\u{1b}[30mTest \u{1b}[90mTest \u{1b}[1;30mTest \u{1b}[90mTest\u{1b}[0m
+\u{1b}[31mTest \u{1b}[91mTest \u{1b}[1;31mTest \u{1b}[91mTest\u{1b}[0m
+\u{1b}[32mTest \u{1b}[92mTest \u{1b}[1;32mTest \u{1b}[92mTest\u{1b}[0m
+\u{1b}[33mTest \u{1b}[93mTest \u{1b}[1;33mTest \u{1b}[93mTest\u{1b}[0m
+\u{1b}[34mTest \u{1b}[94mTest \u{1b}[1;34mTest \u{1b}[94mTest\u{1b}[0m
+\u{1b}[35mTest \u{1b}[95mTest \u{1b}[1;35mTest \u{1b}[95mTest\u{1b}[0m
+\u{1b}[36mTest \u{1b}[96mTest \u{1b}[1;36mTest \u{1b}[96mTest\u{1b}[0m
+\u{1b}[37mTest \u{1b}[97mTest \u{1b}[1;37mTest \u{1b}[97mTest\u{1b}[0m
+".trim()
+
+#grid(
+  columns: 2,
+  gutter: 10pt,
+  ansi-render(bold-bright-test, inset: 5pt, radius: 3pt, theme: terminal-themes.vintage),
+  ansi-render(bold-bright-test, inset: 5pt, radius: 3pt, theme: terminal-themes.vintage, bold-is-bright: true),
+)
