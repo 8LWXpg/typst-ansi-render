@@ -369,7 +369,7 @@
       num = int(num)
       let colors = (0, 95, 135, 175, 215, 255)
       if num <= 7 { match-text.at(str(num+30)) }
-      else if num <= 15 { match-bg.at(str(num+32)) }
+      else if num <= 15 { match-text.at(str(num+82)) }
       else if num <= 231 {
         num -= 16
         let (r, g, b) = (colors.at(int(num/36)), colors.at(calc.rem(int(num/6),6)), colors.at(calc.rem(num,6)))
