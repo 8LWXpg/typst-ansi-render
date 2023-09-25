@@ -1,5 +1,15 @@
 # Changelog 📝
 
+## [0.4.3] - TODO
+
+### Added
+
+* Added `bold-is-bright` option
+
+### Changed
+
+* Allow setting font to none
+
 ## [0.4.2] - 2023-09-24
 
 ### Added
