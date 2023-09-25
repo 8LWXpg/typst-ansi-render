@@ -463,7 +463,8 @@
     arr
   }
 
-  set text(..(match-text.default), font: font, size: size, top-edge: "ascender", bottom-edge: "descender")
+  if font != none { match-text.default += (font: font) }
+  set text(..(match-text.default), size: size, top-edge: "ascender", bottom-edge: "descender")
   set par(leading: 0em)
 
   let option = (
@@ -534,7 +535,11 @@
       } else {
         c
       }
-      [#str]
+      if font == none {
+        [#raw(str)]
+      } else {
+        [#str]
+      }
     }
     // fill trailing newlines
     let s = str.find(regex("\n+$"))
