@@ -76,6 +76,7 @@ see [demo.typ](https://github.com/8LWXpg/typst-ansi-render/blob/master/test/demo
 \u{1b}[4mThis text is underlined.\u{1b}[0m
 \u{1b}[38;2;255;165;0m\u{1b}[48;2;255;255;0mThis text is orange on a yellow background.\u{1b}[0m
 ",
+inset: 5pt, radius: 3pt,
 theme: terminal-themes.vscode
 )
 ```
@@ -91,6 +92,7 @@ theme: terminal-themes.vscode
 \u{1b}[38;5;208;48;5;237mOrange text on gray background\u{1b}[0m
 \u{1b}[38;5;39;48;5;208mBlue text on orange background\u{1b}[0m
 \u{1b}[38;5;255;48;5;0mWhite text on black background\u{1b}[0m",
+inset: 5pt, radius: 3pt,
 theme: terminal-themes.vscode
 )
 ```
@@ -103,6 +105,7 @@ theme: terminal-themes.vscode
 
 \u{1b}[53;4;36mOver  and \u{1b}[35m Under!
 \u{1b}[7;90mreverse\u{1b}[101m and \u{1b}[94;27mreverse",
+inset: 5pt, radius: 3pt,
 theme: terminal-themes.vscode
 )
 ```
@@ -111,7 +114,7 @@ theme: terminal-themes.vscode
 
 ```typst
 // uses the font that supports ligatures
-#ansi-render(read("test.txt"), font: "CaskaydiaCove Nerd Font Mono", theme: terminal-themes.putty)
+#ansi-render(read("test.txt"), inset: 5pt, radius: 3pt, font: "Cascadia Code", theme: terminal-themes.putty)
 ```
 
 ![4.png](https://github.com/8LWXpg/typst-ansi-render/blob/master/img/4.png)
