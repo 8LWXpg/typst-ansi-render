@@ -21,7 +21,7 @@ contribution is welcomed!
 
 #ansi-render(
   string,
-  font:       string,
+  font:       string or none,
   size:       length,
   width:      auto or relative length,
   height:     auto or relative length,
@@ -42,7 +42,7 @@ contribution is welcomed!
 most parameters comes from [`block`]([https://](https://typst.app/docs/reference/layout/block/)) function, adjust the layout outmost block.
 
 - `string` - string with ANSI escape sequences
-- `font` - font name, default is `Cascadia Code`
+- `font` - font name or none, default is `Cascadia Code`
 - `size` - font size, default is `9pt`
 - `theme` - theme, default is `vscode-light`
 - parameters from [`block`]([https://](https://typst.app/docs/reference/layout/block/)) function with the same default value, change to adjust the outmost layout:
