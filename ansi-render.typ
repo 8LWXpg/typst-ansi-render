@@ -314,7 +314,9 @@
   above: 1.2em,
   below: 1.2em,
   clip: false,
-  theme: terminal-themes.vscode-light) = {
+  theme: terminal-themes.vscode-light,
+  bold-is-bright: false,
+) = {
   // dict with text style
   let match-text = (
     "1": (weight: "bold"),
@@ -505,6 +507,16 @@
     option.bg += m.bg
     if m.reverse != none { option.reverse = m.reverse }
     if option.reverse { (option.text.fill, option.bg.fill) = (option.bg.fill, option.text.fill) }
+    if option.text.weight == "bold" and bold-is-bright {
+      if option.text.fill == theme.black { option.text.fill = theme.gray }
+      if option.text.fill == theme.red { option.text.fill = theme.bright-red }
+      if option.text.fill == theme.green { option.text.fill = theme.bright-green }
+      if option.text.fill == theme.yellow { option.text.fill = theme.bright-yellow }
+      if option.text.fill == theme.blue { option.text.fill = theme.bright-blue }
+      if option.text.fill == theme.magenta { option.text.fill = theme.bright-magenta }
+      if option.text.fill == theme.cyan { option.text.fill = theme.bright-cyan }
+      if option.text.fill == theme.white { option.text.fill = theme.bright-white }
+    }
     if m.ul != none { option.ul = m.ul }
     if m.ol != none { option.ol = m.ol }
 
