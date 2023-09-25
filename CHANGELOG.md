@@ -9,6 +9,7 @@
 ### Changed
 
 * Allow setting font to none #3
+* Changed default font size to `0.8em` (same as raw)
 
 ### Fixed
 

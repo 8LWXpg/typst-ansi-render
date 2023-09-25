@@ -44,9 +44,9 @@ most parameters comes from [`block`]([https://](https://typst.app/docs/reference
 
 - `string` - string with ANSI escape sequences
 - `font` - font name or none, default is `Cascadia Code`
-- `size` - font size, default is `9pt`
+- `size` - font size, default is `0.8em`
 - `theme` - theme, default is `vscode-light`
-- `bold-is-bright` - boolean whether bold text should always be rendered with bright colors, default is `false`
+- `bold-is-bright` - boolean, whether bold text should always be rendered with bright colors, default is `false`
 - parameters from [`block`]([https://](https://typst.app/docs/reference/layout/block/)) function with the same default value, change to adjust the outmost layout:
   - `width`
   - `height`

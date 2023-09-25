@@ -32,7 +32,7 @@
 )
 
 = Render text from a file
-#ansi-render(read("test.txt"), theme: terminal-themes.vscode-light)
+#ansi-render(read("test.txt"), theme: terminal-themes.vscode-light, font: none)
 
 = Uses the font supports ligatures
 #ansi-render(read("test.txt"), font: "Cascadia Code", theme: terminal-themes.putty)

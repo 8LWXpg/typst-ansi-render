@@ -303,7 +303,7 @@
 #let ansi-render(
   body,
   font: "Cascadia Code",
-  size: 9pt,
+  size: 0.8em,
   width: auto,
   height: auto,
   breakable: true,
@@ -463,8 +463,10 @@
     arr
   }
 
-  if font != none { match-text.default += (font: font) }
-  set text(..(match-text.default), size: size, top-edge: "ascender", bottom-edge: "descender")
+  // if font != none { match-text.default += (font: font) }
+  // set text(..(match-text.default), size: size, top-edge: "ascender", bottom-edge: "descender")
+  if font == none { font = "Cascadia Code" }
+  set text(..(match-text.default), size: size, top-edge: "ascender", bottom-edge: "descender", font: font)
   set par(leading: 0em)
 
   let option = (
@@ -524,7 +526,7 @@
     str = str.replace(regex("([ \t]+)$"), m => m.captures.at(0) + "\u{200b}")
     {
       show: box.with(..option.bg)
-      show: text.with(..option.text)
+      set text(..option.text)
       show: c => if option.ul {
         underline(c)
       } else {
@@ -535,11 +537,7 @@
       } else {
         c
       }
-      if font == none {
-        [#raw(str)]
-      } else {
-        [#str]
-      }
+      [#str]
     }
     // fill trailing newlines
     let s = str.find(regex("\n+$"))
