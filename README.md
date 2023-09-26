@@ -46,7 +46,7 @@ contribution is welcomed!
 most parameters comes from [`block`]([https://](https://typst.app/docs/reference/layout/block/)) function, adjust the layout outmost block.
 
 - `string` - string with ANSI escape sequences
-- `font` - font name or none, default is `Cascadia Code`
+- `font` - font name or none, default is `Cascadia Code`, set to `none` to use the same font as `raw`
 - `size` - font size, default is `1em`
 - `theme` - theme, default is `vscode-light`
 - `bold-is-bright` - boolean, whether bold text should always be rendered with bright colors, default is `false`
