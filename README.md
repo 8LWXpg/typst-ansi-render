@@ -9,6 +9,9 @@
 <a href="https://github.com/8LWXpg/typst-ansi-render/blob/master/LICENSE">
   <img alt="GitHub" src="https://img.shields.io/github/license/8LWXpg/typst-ansi-render">
 </a>
+<a href="https://github.com/typst/packages/tree/main/packages/preview/ansi-render">
+  <img alt="typst package" src="https://img.shields.io/badge/typst-package-239dad">
+</a>
 
 This script provides a simple way to render text with ANSI escape sequences. Package `ansi-render` provides a function `ansi-render`, and a dictionary of themes `terminal-themes`.
 
@@ -44,7 +47,7 @@ most parameters comes from [`block`]([https://](https://typst.app/docs/reference
 
 - `string` - string with ANSI escape sequences
 - `font` - font name or none, default is `Cascadia Code`
-- `size` - font size, default is `0.8em`
+- `size` - font size, default is `1em`
 - `theme` - theme, default is `vscode-light`
 - `bold-is-bright` - boolean, whether bold text should always be rendered with bright colors, default is `false`
 - parameters from [`block`]([https://](https://typst.app/docs/reference/layout/block/)) function with the same default value, change to adjust the outmost layout:
