@@ -303,7 +303,7 @@
 #let ansi-render(
   body,
   font: "Cascadia Code",
-  size: 0.8em,
+  size: 1em,
   width: auto,
   height: auto,
   breakable: true,
@@ -463,8 +463,12 @@
     arr
   }
 
-  if font == none { font = "Cascadia Code" }
-  set text(..(match-text.default), size: size, top-edge: "ascender", bottom-edge: "descender", font: font)
+  show raw: if font == none {
+    text.with(top-edge: "ascender", bottom-edge: "descender")
+  } else {
+    text.with(font: font, top-edge: "ascender", bottom-edge: "descender")
+  }
+  set text(..(match-text.default), size: size)
   set par(leading: 0em)
 
   let option = (
@@ -522,7 +526,7 @@
 
     // work around for trailing whitespace with under/overline
     str = str.replace(regex("([ \t]+)$"), m => m.captures.at(0) + "\u{200b}")
-    {
+    for s in str.split("\n") {
       show: box.with(..option.bg)
       set text(..option.text)
       show: c => if option.ul {
@@ -535,7 +539,7 @@
       } else {
         c
       }
-      [#str]
+      [#raw(s)\ ]
     }
     // fill trailing newlines
     let s = str.find(regex("\n+$"))
