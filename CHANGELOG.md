@@ -1,6 +1,6 @@
 # Changelog 📝
 
-## [0.4.3] - TODO
+## [0.5.0] - TODO
 
 ### Added
 
@@ -9,7 +9,8 @@
 ### Changed
 
 * Allow setting font to none #3
-* Changed default font size to `0.8em` (same as raw)
+* Changed default font size to `1em`
+* Use `raw` to render content now
 
 ### Fixed
 

@@ -20,7 +20,7 @@ contribution is welcomed!
 ## Usage
 
 ```typst
-#import "@preview/ansi-render:0.4.2": *
+#import "@preview/ansi-render:0.5.0": *
 
 #ansi-render(
   string,
@@ -43,14 +43,14 @@ contribution is welcomed!
 
 ### Parameters
 
-most parameters comes from [`block`]([https://](https://typst.app/docs/reference/layout/block/)) function, adjust the layout outmost block.
+most parameters comes from [`block`](https://typst.app/docs/reference/layout/block/) function, adjust the layout outmost block.
 
 - `string` - string with ANSI escape sequences
 - `font` - font name or none, default is `Cascadia Code`, set to `none` to use the same font as `raw`
 - `size` - font size, default is `1em`
 - `theme` - theme, default is `vscode-light`
-- `bold-is-bright` - boolean, whether bold text should always be rendered with bright colors, default is `false`
-- parameters from [`block`]([https://](https://typst.app/docs/reference/layout/block/)) function with the same default value, change to adjust the outmost layout:
+- `bold-is-bright` - boolean, whether bold text is rendered with bright colors, default is `false`
+- parameters from [`block`](https://typst.app/docs/reference/layout/block/) function with the same default value, change to adjust the outmost layout:
   - `width`
   - `height`
   - `breakable`

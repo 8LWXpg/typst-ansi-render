@@ -38,16 +38,16 @@
 #ansi-render(read("test.txt"), font: "Cascadia Code", theme: terminal-themes.putty)
 
 = Render bold text with bright colors
-#let bold-bright-test = "
-\u{1b}[30mTest \u{1b}[90mTest \u{1b}[1;30mTest \u{1b}[90mTest\u{1b}[0m
-\u{1b}[31mTest \u{1b}[91mTest \u{1b}[1;31mTest \u{1b}[91mTest\u{1b}[0m
-\u{1b}[32mTest \u{1b}[92mTest \u{1b}[1;32mTest \u{1b}[92mTest\u{1b}[0m
-\u{1b}[33mTest \u{1b}[93mTest \u{1b}[1;33mTest \u{1b}[93mTest\u{1b}[0m
-\u{1b}[34mTest \u{1b}[94mTest \u{1b}[1;34mTest \u{1b}[94mTest\u{1b}[0m
-\u{1b}[35mTest \u{1b}[95mTest \u{1b}[1;35mTest \u{1b}[95mTest\u{1b}[0m
-\u{1b}[36mTest \u{1b}[96mTest \u{1b}[1;36mTest \u{1b}[96mTest\u{1b}[0m
-\u{1b}[37mTest \u{1b}[97mTest \u{1b}[1;37mTest \u{1b}[97mTest\u{1b}[0m
-".trim()
+#let bold-bright-test = (
+"\u{1b}[30mNormal\t \u{1b}[90mBright\t \u{1b}[1;30mBold\u{1b}[0m
+\u{1b}[31mNormal\t \u{1b}[91mBright\t \u{1b}[1;31mBold\u{1b}[0m
+\u{1b}[32mNormal\t \u{1b}[92mBright\t \u{1b}[1;32mBold\u{1b}[0m
+\u{1b}[33mNormal\t \u{1b}[93mBright\t \u{1b}[1;33mBold\u{1b}[0m
+\u{1b}[34mNormal\t \u{1b}[94mBright\t \u{1b}[1;34mBold\u{1b}[0m
+\u{1b}[35mNormal\t \u{1b}[95mBright\t \u{1b}[1;35mBold\u{1b}[0m
+\u{1b}[36mNormal\t \u{1b}[96mBright\t \u{1b}[1;36mBold\u{1b}[0m
+\u{1b}[37mNormal\t \u{1b}[97mBright\t \u{1b}[1;37mBold\u{1b}[0m"
+)
 
 #grid(
   columns: 2,
