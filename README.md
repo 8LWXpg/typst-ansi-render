@@ -75,8 +75,7 @@ see [demo.typ](https://github.com/8LWXpg/typst-ansi-render/blob/master/test/demo
 \u{1b}[38;2;255;255;255m\u{1b}[48;2;0;0;255mThis text is white on a blue background.\u{1b}[0m
 \u{1b}[1mThis text is bold.\u{1b}[0m
 \u{1b}[4mThis text is underlined.\u{1b}[0m
-\u{1b}[38;2;255;165;0m\u{1b}[48;2;255;255;0mThis text is orange on a yellow background.\u{1b}[0m
-",
+\u{1b}[38;2;255;165;0m\u{1b}[48;2;255;255;0mThis text is orange on a yellow background.\u{1b}[0m",
 inset: 5pt, radius: 3pt,
 theme: terminal-themes.vscode
 )
