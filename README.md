@@ -82,7 +82,7 @@ theme: terminal-themes.vscode
 )
 ```
 
-![1.png](https://github.com/8LWXpg/typst-ansi-render/blob/master/img/1.svg)
+![1.png](https://github.com/8LWXpg/typst-ansi-render/blob/master/img/1.png)
 
 ```typst
 #ansi-render(
@@ -98,7 +98,7 @@ theme: terminal-themes.vscode
 )
 ```
 
-![2.png](https://github.com/8LWXpg/typst-ansi-render/blob/master/img/2.svg)
+![2.png](https://github.com/8LWXpg/typst-ansi-render/blob/master/img/2.png)
 
 ```typst
 #ansi-render(
@@ -111,11 +111,11 @@ theme: terminal-themes.vscode
 )
 ```
 
-![3.png](https://github.com/8LWXpg/typst-ansi-render/blob/master/img/3.svg)
+![3.png](https://github.com/8LWXpg/typst-ansi-render/blob/master/img/3.png)
 
 ```typst
 // uses the font that supports ligatures
 #ansi-render(read("test.txt"), inset: 5pt, radius: 3pt, font: "Cascadia Code", theme: terminal-themes.putty)
 ```
 
-![4.png](https://github.com/8LWXpg/typst-ansi-render/blob/master/img/4.svg)
+![4.png](https://github.com/8LWXpg/typst-ansi-render/blob/master/img/4.png)

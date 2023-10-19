@@ -11,7 +11,7 @@ for ($i = 1; $i -le $m.Count - 1; $i++) {
 	$content = $m[$i].Groups[1].Value
 	$file = "$i.typ"
 	$template + $content > "$i.typ"
-	typst c $file "../img/$i.svg" --root ../ --ppi 216 && Remove-Item $file
+	typst c $file "../img/$i.png" --root ../ --ppi 300 && Remove-Item $file
 }
 
 Pop-Location
