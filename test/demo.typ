@@ -10,8 +10,7 @@
 \u{1b}[38;2;255;255;255m\u{1b}[48;2;0;0;255mThis text is white on a blue background.\u{1b}[0m
 \u{1b}[1mThis text is bold.\u{1b}[0m
 \u{1b}[4mThis text is underlined.\u{1b}[0m
-\u{1b}[38;2;255;165;0m\u{1b}[48;2;255;255;0mThis text is orange on a yellow background.\u{1b}[0m
-"
+\u{1b}[38;2;255;165;0m\u{1b}[48;2;255;255;0mThis text is orange on a yellow background.\u{1b}[0m"
 )
 
 #ansi-render(
@@ -54,4 +53,19 @@
   gutter: 10pt,
   ansi-render(bold-bright-test, theme: terminal-themes.vintage),
   ansi-render(bold-bright-test, theme: terminal-themes.vintage, bold-is-bright: true),
+)
+
+= Render empty newlines
+#ansi-render(
+"
+
+
+3 empty lines above
+
+
+
+3 empty lines below
+
+
+"
 )

@@ -21,7 +21,6 @@
     default-text: rgb(229, 229, 229), // white
     default-bg: rgb(0, 0, 0), // black
   ),
-
   // vscode light theme
   vscode-light: (
     black: rgb("#F8F8F8"),
@@ -43,7 +42,6 @@
     default-text: rgb("#A5A5A5"), // white
     default-bg: rgb("#F8F8F8"), // black
   ),
-
   // putty terminal theme
   putty: (
     black: rgb(0, 0, 0),
@@ -65,7 +63,6 @@
     default-text: rgb(187, 187, 187), // white
     default-bg: rgb(0, 0, 0), // black
   ),
-
   // themes from Windows Terminal
   campbell: (
     black: rgb("#0C0C0C"),
@@ -87,7 +84,6 @@
     default-text: rgb("#CCCCCC"),
     default-bg: rgb("#0C0C0C"),
   ),
-
   campbell-powershell: (
     black: rgb("#0C0C0C"),
     red: rgb("#C50F1F"),
@@ -108,7 +104,6 @@
     default-text: rgb("#CCCCCC"),
     default-bg: rgb("#012456"),
   ),
-
   vintage: (
     black: rgb("#000000"),
     red: rgb("#800000"),
@@ -129,7 +124,6 @@
     default-text: rgb("#C0C0C0"),
     default-bg: rgb("#000000"),
   ),
-
   one-half-dark: (
     black: rgb("#282C34"),
     red: rgb("#E06C75"),
@@ -150,7 +144,6 @@
     default-text: rgb("#DCDFE4"),
     default-bg: rgb("#282C34"),
   ),
-
   one-half-light: (
     black: rgb("#383A42"),
     red: rgb("#E45649"),
@@ -171,7 +164,6 @@
     default-text: rgb("#383A42"),
     default-bg: rgb("#FAFAFA"),
   ),
-
   solarized-dark: (
     black: rgb("#002B36"),
     red: rgb("#DC322F"),
@@ -192,7 +184,6 @@
     default-text: rgb("#839496"),
     default-bg: rgb("#002B36"),
   ),
-
   solarized-light: (
     black: rgb("#002B36"),
     red: rgb("#DC322F"),
@@ -213,7 +204,6 @@
     default-text: rgb("#657B83"),
     default-bg: rgb("#FDF6E3"),
   ),
-
   tango-dark: (
     black: rgb("#000000"),
     red: rgb("#CC0000"),
@@ -234,7 +224,6 @@
     default-text: rgb("#D3D7CF"),
     default-bg: rgb("#000000"),
   ),
-
   tango-light: (
     black: rgb("#000000"),
     red: rgb("#CC0000"),
@@ -255,7 +244,6 @@
     default-text: rgb("#555753"),
     default-bg: rgb("#FFFFFF"),
   ),
-
   gruvbox-dark: (
     black: rgb("#282828"),
     red: rgb("#cc241d"),
@@ -276,7 +264,6 @@
     default-text: rgb("#ebdbb2"),
     default-bg: rgb("#282828"),
   ),
-
   gruvbox-light: (
     black: rgb("#3c3836"),
     red: rgb("#cc241d"),
@@ -296,7 +283,7 @@
     bright-white: rgb("#fbf1c7"),
     default-text: rgb("#3c3836"),
     default-bg: rgb("#fbf1c7"),
-  )
+  ),
 )
 
 // ansi rendering function
@@ -314,8 +301,8 @@
   above: 1.2em,
   below: 1.2em,
   clip: false,
-  theme: terminal-themes.vscode-light,
   bold-is-bright: false,
+  theme: terminal-themes.vscode-light,
 ) = {
   // dict with text style
   let match-text = (
@@ -339,7 +326,7 @@
     "95": (fill: theme.bright-magenta),
     "96": (fill: theme.bright-cyan),
     "97": (fill: theme.bright-white),
-    "default": (weight: "regular", style: "normal", fill: theme.default-text)
+    "default": (weight: "regular", style: "normal", fill: theme.default-text),
   )
   // dict with background style
   let match-bg = (
@@ -360,7 +347,7 @@
     "105": (fill: theme.bright-magenta),
     "106": (fill: theme.bright-cyan),
     "107": (fill: theme.bright-white),
-    "default": (fill: theme.default-bg)
+    "default": (fill: theme.default-bg),
   )
 
   let match-options(opt) = {
@@ -368,27 +355,27 @@
     let parse-8bit-color(num) = {
       num = int(num)
       let colors = (0, 95, 135, 175, 215, 255)
-      if num <= 7 { match-text.at(str(num+30)) }
-      else if num <= 15 { match-text.at(str(num+82)) }
-      else if num <= 231 {
+      if num <= 7 { match-text.at(str(num + 30)) } else if num <= 15 { match-text.at(str(num + 82)) } else if num <= 231 {
         num -= 16
-        let (r, g, b) = (colors.at(int(num/36)), colors.at(calc.rem(int(num/6),6)), colors.at(calc.rem(num,6)))
-        (fill: rgb(r, g, b))
+        (fill: rgb(
+          colors.at(int(num / 36)),
+          colors.at(calc.rem(int(num / 6), 6)),
+          colors.at(calc.rem(num, 6)),
+        ))
       } else {
         num -= 232
-        let (r, g, b) = (8+10*num, 8+10*num, 8+10*num)
-        (fill: rgb(r, g, b))
+        (fill: rgb(8 + 10 * num, 8 + 10 * num, 8 + 10 * num))
       }
     }
 
     let (opt-text, opt-bg) = ((:), (:))
-    let (ul, ol, reverse, last) = (none, none, none, none)
+    let (ul, ol, rev, last) = (none, none, none, none)
     let count = 0
     let color = (0, 0, 0)
 
     // match options
     for i in opt {
-      if last == "382" or last =="482" {
+      if last == "382" or last == "482" {
         color.at(count) = int(i)
         count += 1
         if count == 3 {
@@ -414,7 +401,7 @@
         opt-bg += match-bg.default
         ul = false
         ol = false
-        reverse = false
+        rev = false
       }
       else if i in match-bg.keys() { opt-bg += match-bg.at(i) }
       else if i in match-text.keys() { opt-text += match-text.at(i) }
@@ -422,8 +409,8 @@
       else if i == "24" { ul = false }
       else if i == "53" { ol = true }
       else if i == "55" { ol = false }
-      else if i == "7" { reverse = true }
-      else if i == "27" { reverse = false }
+      else if i == "7" { rev = true }
+      else if i == "27" { rev = false }
       else if i == "38" or i == "48" {
         last = i
         continue
@@ -437,7 +424,7 @@
       }
       last = none
     }
-    (text: opt-text, bg: opt-bg, ul: ul, ol: ol, reverse: reverse)
+    (text: opt-text, bg: opt-bg, ul: ul, ol: ol, rev: rev)
   }
 
   let parse-option(body) = {
@@ -449,7 +436,7 @@
       // split the string by newline and preserve newline
       let split = str.split("\n")
       for (k, v) in split.enumerate() {
-        if k != split.len()-1 {
+        if k != split.len() - 1 {
           v = v + "\n"
         }
         let temp = (v, ())
@@ -463,6 +450,20 @@
     arr
   }
 
+  // prevent set from outside of the function
+  set box(
+    width: auto,
+    height: auto,
+    baseline: 0pt,
+    fill: none,
+    stroke: none,
+    radius: 0pt,
+    inset: 0pt,
+    outset: 0pt,
+    clip: false,
+  )
+
+  // settings
   show raw: if font == none {
     text.with(top-edge: "ascender", bottom-edge: "descender")
   } else {
@@ -470,14 +471,6 @@
   }
   set text(..(match-text.default), size: size)
   set par(leading: 0em)
-
-  let option = (
-    text: match-text.default,
-    bg: match-bg.default,
-    ul: false,
-    ol: false,
-    reverse: false
-  )
   show: block.with(
     ..(match-bg.default),
     width: width,
@@ -491,17 +484,14 @@
     below: below,
     clip: clip,
   )
-  // prevent set from outside of the function
-  set box(
-    width: auto,
-    height: auto,
-    baseline: 0pt,
-    fill: none,
-    stroke: none,
-    radius: 0pt,
-    inset: 0pt,
-    outset: 0pt,
-    clip: false,
+
+  // current option
+  let option = (
+    text: match-text.default,
+    bg: match-bg.default,
+    ul: false,
+    ol: false,
+    rev: false,
   )
   // work around for rendering first line without escape sequence
   body = "\u{1b}[0m" + body
@@ -509,8 +499,8 @@
     let m = match-options(opt)
     option.text += m.text
     option.bg += m.bg
-    if m.reverse != none { option.reverse = m.reverse }
-    if option.reverse { (option.text.fill, option.bg.fill) = (option.bg.fill, option.text.fill) }
+    if m.rev != none { option.rev = m.rev }
+    if option.rev { (option.text.fill, option.bg.fill) = (option.bg.fill, option.text.fill) }
     if option.text.weight == "bold" and bold-is-bright {
       option.text.fill = if option.text.fill == theme.black { theme.gray }
       else if option.text.fill == theme.red { theme.bright-red }
@@ -540,7 +530,7 @@
       } else {
         c
       }
-      [#raw(s)\ ]
+      [#raw(s+"\n\n")]
     }
     // fill trailing newlines
     let s = str.find(regex("\n+$"))
