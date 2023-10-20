@@ -512,14 +512,15 @@
     if m.reverse != none { option.reverse = m.reverse }
     if option.reverse { (option.text.fill, option.bg.fill) = (option.bg.fill, option.text.fill) }
     if option.text.weight == "bold" and bold-is-bright {
-      if option.text.fill == theme.black { option.text.fill = theme.gray }
-      if option.text.fill == theme.red { option.text.fill = theme.bright-red }
-      if option.text.fill == theme.green { option.text.fill = theme.bright-green }
-      if option.text.fill == theme.yellow { option.text.fill = theme.bright-yellow }
-      if option.text.fill == theme.blue { option.text.fill = theme.bright-blue }
-      if option.text.fill == theme.magenta { option.text.fill = theme.bright-magenta }
-      if option.text.fill == theme.cyan { option.text.fill = theme.bright-cyan }
-      if option.text.fill == theme.white { option.text.fill = theme.bright-white }
+      option.text.fill = if option.text.fill == theme.black { theme.gray }
+      else if option.text.fill == theme.red { theme.bright-red }
+      else if option.text.fill == theme.green { theme.bright-green }
+      else if option.text.fill == theme.yellow { theme.bright-yellow }
+      else if option.text.fill == theme.blue { theme.bright-blue }
+      else if option.text.fill == theme.magenta { theme.bright-magenta }
+      else if option.text.fill == theme.cyan { theme.bright-cyan }
+      else if option.text.fill == theme.white { theme.bright-white }
+      else { option.text.fill }
     }
     if m.ul != none { option.ul = m.ul }
     if m.ol != none { option.ol = m.ol }
