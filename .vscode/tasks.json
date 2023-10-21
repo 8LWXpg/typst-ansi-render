@@ -4,7 +4,7 @@
 	"version": "2.0.0",
 	"tasks": [
 		{
-			"label": "watch",
+			"label": "watch demo",
 			"type": "shell",
 			"command": "typst",
 			"args": [
@@ -17,6 +17,17 @@
 				"kind": "build",
 				"isDefault": true
 			}
+		},
+		{
+			"label": "watch test",
+			"type": "shell",
+			"command": "typst",
+			"args": [
+				"w",
+				"test/test.typ",
+				"--root",
+				"${workspaceFolder}"
+			],
 		},
 		{
 			"label": "compile themes",

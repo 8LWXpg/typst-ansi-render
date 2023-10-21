@@ -54,18 +54,3 @@
   ansi-render(bold-bright-test, theme: terminal-themes.vintage),
   ansi-render(bold-bright-test, theme: terminal-themes.vintage, bold-is-bright: true),
 )
-
-= Render empty newlines
-#ansi-render(
-"
-
-
-3 empty lines above
-
-
-
-3 empty lines below
-
-
-"
-)

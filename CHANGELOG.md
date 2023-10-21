@@ -1,5 +1,11 @@
 # Changelog 📝
 
+## [0.5.1] - 2023-10-21
+
+### Fixed
+
+* Fixed height with empty newline
+
 ## [0.5.0] - 2023-09-29
 
 ### Added
