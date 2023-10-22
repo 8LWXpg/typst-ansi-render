@@ -20,7 +20,7 @@ contribution is welcomed!
 ## Usage
 
 ```typst
-#import "@preview/ansi-render:0.5.0": *
+#import "@preview/ansi-render:0.5.1": *
 
 #ansi-render(
   string,
