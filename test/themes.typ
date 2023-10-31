@@ -1,4 +1,5 @@
 #import "../ansi-render.typ": *
+#set document(date: none)
 
 #let preview = ansi-render.with(read("color.txt"), size: 8pt, inset: 5pt, radius: 3pt)
 

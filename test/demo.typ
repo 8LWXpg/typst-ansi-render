@@ -1,4 +1,5 @@
 #import "../ansi-render.typ": ansi-render as __ansi-render, terminal-themes
+#set document(date: none)
 
 // workaround before set is implemented
 #let ansi-render = __ansi-render.with(inset: 5pt, radius: 3pt, theme: terminal-themes.vscode)
