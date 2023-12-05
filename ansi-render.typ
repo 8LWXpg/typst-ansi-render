@@ -530,7 +530,7 @@
       } else {
         c
       }
-      [#raw(s+"\n\n")]
+      [#raw(s+"\n")]
     }
     // fill trailing newlines
     let s = str.find(regex("\n+$"))

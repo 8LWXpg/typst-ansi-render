@@ -1,5 +1,11 @@
 # Changelog 📝
 
+## [0.6.0] - 2023-12-05
+
+### Fixed
+
+* Fixed newline in `raw` for Typst 0.10.0
+
 ## [0.5.1] - 2023-10-21
 
 ### Fixed
