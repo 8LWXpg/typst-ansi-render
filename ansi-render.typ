@@ -350,12 +350,17 @@
     "default": (fill: theme.default-bg),
   )
 
+  // match for regex parsed options
+  // input: array of options in string inside escape sequence
+  // return: a dict with text and background style
   let match-options(opt) = {
     // parse 38;5 48;5
     let parse-8bit-color(num) = {
       num = int(num)
       let colors = (0, 95, 135, 175, 215, 255)
-      if num <= 7 { match-text.at(str(num + 30)) } else if num <= 15 { match-text.at(str(num + 82)) } else if num <= 231 {
+      if num <= 7 { match-text.at(str(num + 30)) }
+      else if num <= 15 { match-text.at(str(num + 82)) }
+      else if num <= 231 {
         num -= 16
         (fill: rgb(
           colors.at(int(num / 36)),
@@ -427,6 +432,9 @@
     (text: opt-text, bg: opt-bg, ul: ul, ol: ol, rev: rev)
   }
 
+  // parse escape sequence
+  // return: array of (str, options)
+  // str is split by newline
   let parse-option(body) = {
     let arr = ()
     let cur = 0
@@ -495,6 +503,10 @@
   )
   // work around for rendering first line without escape sequence
   body = "\u{1b}[0m" + body
+  // work around for one trailing newline consumed by raw
+  if body.ends-with("\n") {
+    body = body + "\n"
+  }
   for (str, opt) in parse-option(body) {
     let m = match-options(opt)
     option.text += m.text
@@ -517,20 +529,12 @@
 
     // work around for trailing whitespace with under/overline
     str = str.replace(regex("([ \t]+)$"), m => m.captures.at(0) + "\u{200b}")
-    for s in str.split("\n") {
+    {
       show: box.with(..option.bg)
       set text(..option.text)
-      show: c => if option.ul {
-        underline(c)
-      } else {
-        c
-      }
-      show: c => if option.ol {
-        overline(c)
-      } else {
-        c
-      }
-      [#raw(s+"\n")]
+      show: c => if option.ul { underline(c) } else { c }
+      show: c => if option.ol { overline(c) } else { c }
+      raw(str)
     }
     // fill trailing newlines
     let s = str.find(regex("\n+$"))
