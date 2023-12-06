@@ -1,10 +1,11 @@
 # Changelog 📝
 
-## [0.6.0] - 2023-12-05
+## [0.6.0] - 2023-12-06
 
 ### Fixed
 
 * Fixed newline in `raw` for Typst 0.10.0
+* Removed unnecessary for loop
 
 ## [0.5.1] - 2023-10-21
 
