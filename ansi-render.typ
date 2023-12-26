@@ -501,9 +501,9 @@
     ol: false,
     rev: false,
   )
-  // work around for rendering first line without escape sequence
+  // workaround for rendering first line without escape sequence
   body = "\u{1b}[0m" + body
-  // work around for one trailing newline consumed by raw
+  // workaround for one trailing newline consumed by raw
   if body.ends-with("\n") {
     body = body + "\n"
   }
@@ -527,7 +527,7 @@
     if m.ul != none { option.ul = m.ul }
     if m.ol != none { option.ol = m.ol }
 
-    // work around for trailing whitespace with under/overline
+    // workaround for trailing whitespace with under/overline
     str = str.replace(regex("([ \t]+)$"), m => m.captures.at(0) + "\u{200b}")
     {
       show: box.with(..option.bg)
