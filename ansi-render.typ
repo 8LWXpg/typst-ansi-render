@@ -526,6 +526,9 @@
     }
     if m.ul != none { option.ul = m.ul }
     if m.ol != none { option.ol = m.ol }
+    // slightly reduce pdf size by removing default box fill
+    if option.bg.fill == theme.default-bg { option.bg.fill = none }
+    if option.text.fill == none { option.text.fill = theme.default-bg }
 
     // workaround for trailing whitespace with under/overline
     str = str.replace(regex("([ \t]+)$"), m => m.captures.at(0) + "\u{200b}")

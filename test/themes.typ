@@ -1,7 +1,8 @@
 #import "../ansi-render.typ": *
 #set document(date: none)
+#set page(width: auto, height: auto)
 
-#let preview = ansi-render.with(read("color.txt"), size: 8pt, inset: 5pt, radius: 3pt)
+#let preview = ansi-render.with(read("color.txt"), inset: 5pt, radius: 3pt)
 
 = List of built-in themes
 == VSCode

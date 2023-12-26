@@ -1,5 +1,12 @@
 # Changelog 📝
 
+## [0.6.1] - 2023-12-26
+
+### Changed
+
+* Changed default foreground color name to `default-fg`
+* Slightly reduce pdf size by removing default box fill
+
 ## [0.6.0] - 2023-12-06
 
 ### Fixed
