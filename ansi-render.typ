@@ -2,24 +2,24 @@
 #let terminal-themes = (
   // vscode terminal theme
   vscode: (
-    black: rgb(0, 0, 0),
-    red: rgb(205, 49, 49),
-    green: rgb(13, 188, 121),
-    yellow: rgb(229, 229, 16),
-    blue: rgb(36, 114, 200),
-    magenta: rgb(188, 63, 188),
-    cyan: rgb(17, 168, 205),
-    white: rgb(229, 229, 229),
-    gray: rgb(102, 102, 102),
-    bright-red: rgb(214, 76, 76),
-    bright-green: rgb(35, 209, 139),
-    bright-yellow: rgb(245, 245, 67),
-    bright-blue: rgb(59, 142, 234),
-    bright-magenta: rgb(214, 112, 214),
-    bright-cyan: rgb(41, 184, 219),
-    bright-white: rgb(229, 229, 229),
-    default-text: rgb(229, 229, 229), // white
-    default-bg: rgb(0, 0, 0), // black
+    black: rgb("#000000"),
+    red: rgb("#CD3131"),
+    green: rgb("#0DBC79"),
+    yellow: rgb("#E5E510"),
+    blue: rgb("#2472C8"),
+    magenta: rgb("#BC3FBC"),
+    cyan: rgb("#11A8CD"),
+    white: rgb("#E5E5E5"),
+    gray: rgb("#666666"),
+    bright-red: rgb("#D64C4C"),
+    bright-green: rgb("#23D18B"),
+    bright-yellow: rgb("#F5F543"),
+    bright-blue: rgb("#3B8EEA"),
+    bright-magenta: rgb("#D670D6"),
+    bright-cyan: rgb("#29B8DB"),
+    bright-white: rgb("#E5E5E5"),
+    default-fg: rgb("#E5E5E5"), // white
+    default-bg: rgb("#000000"), // black
   ),
   // vscode light theme
   vscode-light: (
@@ -39,29 +39,29 @@
     bright-magenta: rgb("#BC05BC"),
     bright-cyan: rgb("#0598BC"),
     bright-white: rgb("#A5A5A5"),
-    default-text: rgb("#A5A5A5"), // white
+    default-fg: rgb("#A5A5A5"), // white
     default-bg: rgb("#F8F8F8"), // black
   ),
   // putty terminal theme
   putty: (
-    black: rgb(0, 0, 0),
-    red: rgb(187, 0, 0),
-    green: rgb(0, 187, 0),
-    yellow: rgb(187, 187, 0),
-    blue: rgb(0, 0, 187),
-    magenta: rgb(187, 0, 187),
-    cyan: rgb(0, 187, 187),
-    white: rgb(187, 187, 187),
-    gray: rgb(85, 85, 85),
-    bright-red: rgb(255, 0, 0),
-    bright-green: rgb(0, 255, 0),
-    bright-yellow: rgb(255, 255, 0),
-    bright-blue: rgb(0, 0, 255),
-    bright-magenta: rgb(255, 0, 255),
-    bright-cyan: rgb(0, 255, 255),
-    bright-white: rgb(255, 255, 255),
-    default-text: rgb(187, 187, 187), // white
-    default-bg: rgb(0, 0, 0), // black
+    black: rgb("#000000"),
+    red: rgb("#BB0000"),
+    green: rgb("#00BB00"),
+    yellow: rgb("#BBBB00"),
+    blue: rgb("#0000BB"),
+    magenta: rgb("#BB00BB"),
+    cyan: rgb("#00BBBB"),
+    white: rgb("#BBBBBB"),
+    gray: rgb("#555555"),
+    bright-red: rgb("#FF0000"),
+    bright-green: rgb("#00FF00"),
+    bright-yellow: rgb("#FFFF00"),
+    bright-blue: rgb("#0000FF"),
+    bright-magenta: rgb("#FF00FF"),
+    bright-cyan: rgb("#00FFFF"),
+    bright-white: rgb("#FFFFFF"),
+    default-fg: rgb("#BBBBBB"), // white
+    default-bg: rgb("#000000"), // black
   ),
   // themes from Windows Terminal
   campbell: (
@@ -81,7 +81,7 @@
     bright-magenta: rgb("#B4009E"),
     bright-cyan: rgb("#61D6D6"),
     bright-white: rgb("#F2F2F2"),
-    default-text: rgb("#CCCCCC"),
+    default-fg: rgb("#CCCCCC"),
     default-bg: rgb("#0C0C0C"),
   ),
   campbell-powershell: (
@@ -101,7 +101,7 @@
     bright-magenta: rgb("#B4009E"),
     bright-cyan: rgb("#61D6D6"),
     bright-white: rgb("#F2F2F2"),
-    default-text: rgb("#CCCCCC"),
+    default-fg: rgb("#CCCCCC"),
     default-bg: rgb("#012456"),
   ),
   vintage: (
@@ -121,7 +121,7 @@
     bright-magenta: rgb("#FF00FF"),
     bright-cyan: rgb("#00FFFF"),
     bright-white: rgb("#FFFFFF"),
-    default-text: rgb("#C0C0C0"),
+    default-fg: rgb("#C0C0C0"),
     default-bg: rgb("#000000"),
   ),
   one-half-dark: (
@@ -141,7 +141,7 @@
     bright-magenta: rgb("#C678DD"),
     bright-cyan: rgb("#56B6C2"),
     bright-white: rgb("#DCDFE4"),
-    default-text: rgb("#DCDFE4"),
+    default-fg: rgb("#DCDFE4"),
     default-bg: rgb("#282C34"),
   ),
   one-half-light: (
@@ -161,7 +161,7 @@
     bright-magenta: rgb("#C577DD"),
     bright-cyan: rgb("#56B5C1"),
     bright-white: rgb("#FFFFFF"),
-    default-text: rgb("#383A42"),
+    default-fg: rgb("#383A42"),
     default-bg: rgb("#FAFAFA"),
   ),
   solarized-dark: (
@@ -181,7 +181,7 @@
     bright-magenta: rgb("#6C71C4"),
     bright-cyan: rgb("#93A1A1"),
     bright-white: rgb("#FDF6E3"),
-    default-text: rgb("#839496"),
+    default-fg: rgb("#839496"),
     default-bg: rgb("#002B36"),
   ),
   solarized-light: (
@@ -201,7 +201,7 @@
     bright-magenta: rgb("#6C71C4"),
     bright-cyan: rgb("#93A1A1"),
     bright-white: rgb("#FDF6E3"),
-    default-text: rgb("#657B83"),
+    default-fg: rgb("#657B83"),
     default-bg: rgb("#FDF6E3"),
   ),
   tango-dark: (
@@ -221,7 +221,7 @@
     bright-magenta: rgb("#AD7FA8"),
     bright-cyan: rgb("#34E2E2"),
     bright-white: rgb("#EEEEEC"),
-    default-text: rgb("#D3D7CF"),
+    default-fg: rgb("#D3D7CF"),
     default-bg: rgb("#000000"),
   ),
   tango-light: (
@@ -241,7 +241,7 @@
     bright-magenta: rgb("#AD7FA8"),
     bright-cyan: rgb("#34E2E2"),
     bright-white: rgb("#EEEEEC"),
-    default-text: rgb("#555753"),
+    default-fg: rgb("#555753"),
     default-bg: rgb("#FFFFFF"),
   ),
   gruvbox-dark: (
@@ -261,7 +261,7 @@
     bright-magenta: rgb("#d3869b"),
     bright-cyan: rgb("#8ec07c"),
     bright-white: rgb("#ebdbb2"),
-    default-text: rgb("#ebdbb2"),
+    default-fg: rgb("#ebdbb2"),
     default-bg: rgb("#282828"),
   ),
   gruvbox-light: (
@@ -281,7 +281,7 @@
     bright-magenta: rgb("#8f3f71"),
     bright-cyan: rgb("#427b58"),
     bright-white: rgb("#fbf1c7"),
-    default-text: rgb("#3c3836"),
+    default-fg: rgb("#3c3836"),
     default-bg: rgb("#fbf1c7"),
   ),
 )
@@ -317,7 +317,7 @@
     "35": (fill: theme.magenta),
     "36": (fill: theme.cyan),
     "37": (fill: theme.white),
-    "39": (fill: theme.default-text),
+    "39": (fill: theme.default-fg),
     "90": (fill: theme.gray),
     "91": (fill: theme.bright-red),
     "92": (fill: theme.bright-green),
@@ -326,7 +326,7 @@
     "95": (fill: theme.bright-magenta),
     "96": (fill: theme.bright-cyan),
     "97": (fill: theme.bright-white),
-    "default": (weight: "regular", style: "normal", fill: theme.default-text),
+    "default": (weight: "regular", style: "normal", fill: theme.default-fg),
   )
   // dict with background style
   let match-bg = (
@@ -539,9 +539,7 @@
     // fill trailing newlines
     let s = str.find(regex("\n+$"))
     if s != none {
-      for i in s {
-        linebreak()
-      }
+      linebreak() * s.len()
     }
   }
 }
