@@ -4,7 +4,7 @@
   <img alt="GitHub manifest version (path)" src="https://img.shields.io/github/v/tag/8LWXpg/typst-ansi-render">
 </a>
 <a href="https://github.com/8LWXpg/typst-ansi-render">
-  <img src="https://img.shields.io/github/stars/8LWXpg/typst-ansi-render" alt="GitHub Repo stars">
+  <img src="https://img.shields.io/github/stars/8LWXpg/typst-ansi-render?style=flat" alt="GitHub Repo stars">
 </a>
 <a href="https://github.com/8LWXpg/typst-ansi-render/blob/master/LICENSE">
   <img alt="GitHub" src="https://img.shields.io/github/license/8LWXpg/typst-ansi-render">
