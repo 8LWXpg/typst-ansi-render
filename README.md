@@ -1,15 +1,15 @@
 # ANSI Escape Sequence Renderer
 
-<a href="https://github.com/8LWXpg/typst-ansi-render/tags">
+<a href="https://github.com/8LWXpg/typst-ansi-render/tags" style="text-decoration: none;">
   <img alt="GitHub manifest version (path)" src="https://img.shields.io/github/v/tag/8LWXpg/typst-ansi-render">
 </a>
-<a href="https://github.com/8LWXpg/typst-ansi-render">
+<a href="https://github.com/8LWXpg/typst-ansi-render" style="text-decoration: none;">
   <img src="https://img.shields.io/github/stars/8LWXpg/typst-ansi-render?style=flat" alt="GitHub Repo stars">
 </a>
-<a href="https://github.com/8LWXpg/typst-ansi-render/blob/master/LICENSE">
+<a href="https://github.com/8LWXpg/typst-ansi-render/blob/master/LICENSE" style="text-decoration: none;">
   <img alt="GitHub" src="https://img.shields.io/github/license/8LWXpg/typst-ansi-render">
 </a>
-<a href="https://github.com/typst/packages/tree/main/packages/preview/ansi-render">
+<a href="https://github.com/typst/packages/tree/main/packages/preview/ansi-render" style="text-decoration: none;">
   <img alt="typst package" src="https://img.shields.io/badge/typst-package-239dad">
 </a>
 
