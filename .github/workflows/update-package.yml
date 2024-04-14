@@ -28,9 +28,8 @@ jobs:
 
     - name: push
       uses: nkoppel/push-files-to-another-repository@v1.1.1
-      # repo PAT
       env:
-        API_TOKEN_GITHUB: ${{ secrets.PERSONAL_TOKEN }}
+        API_TOKEN_GITHUB: ${{ secrets.REPO_PAT }}
       with:
         commit-email: v3ak6xhthk@gmail.com
         source-files: ansi-render.typ CHANGELOG.md LICENSE README.md typst.toml
