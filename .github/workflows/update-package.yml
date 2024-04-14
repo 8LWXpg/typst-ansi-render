@@ -12,7 +12,7 @@ jobs:
     name: push to package
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
       with:
         fetch-depth: 0
 
@@ -27,7 +27,7 @@ jobs:
         echo "tag=${version:1}" >> $GITHUB_OUTPUT
 
     - name: push
-      uses: nkoppel/push-files-to-another-repository@v1.1.1
+      uses: nkoppel/push-files-to-another-repository@v1.1.2
       env:
         API_TOKEN_GITHUB: ${{ secrets.REPO_PAT }}
       with:
