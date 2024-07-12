@@ -114,7 +114,7 @@ theme: terminal-themes.vscode
 
 ```typst
 // uses the font that supports ligatures
-#ansi-render(read("test.txt"), inset: 5pt, radius: 3pt, font: "Cascadia Code", theme: terminal-themes.putty)
+#ansi-render(read("./test/test.txt"), inset: 5pt, radius: 3pt, font: "Cascadia Code", theme: terminal-themes.putty)
 ```
 
 ![4.png](https://github.com/8LWXpg/typst-ansi-render/blob/master/img/4.png)
