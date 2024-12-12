@@ -1,4 +1,4 @@
-#import "../ansi-render.typ": ansi-render as __ansi-render, terminal-themes
+#import "../lib.typ": ansi-render as __ansi-render, terminal-themes
 #set document(date: none)
 
 // workaround before set is implemented
@@ -26,10 +26,10 @@
 \u{1b}[7;90mreverse\u{1b}[101m and \u{1b}[94;27mreverse")
 
 = Render text from a file
-#ansi-render(read("test.txt"), theme: terminal-themes.vscode-light, font: none)
+#ansi-render(read("color.txt"), theme: terminal-themes.vscode-light, font: none)
 
 = Uses the font supports ligatures
-#ansi-render(read("test.txt"), font: "Cascadia Code", theme: terminal-themes.putty)
+#ansi-render(read("color.txt"), font: "Cascadia Code", theme: terminal-themes.putty)
 
 = Render bold text with bright colors
 #let bold-bright-test = "\u{1b}[30mNormal\t \u{1b}[90mBright\t \u{1b}[1;30mBold\u{1b}[0m

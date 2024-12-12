@@ -3,7 +3,7 @@ Push-Location
 Set-Location $PSScriptRoot
 
 $template =
-'#import "ansi-render.typ": *
+'#import "lib.typ": *
 #set page(width: auto, height: auto, margin: 3pt)
 '
 $m = (Get-Content ../README.md -Raw | Select-String -Pattern '```typst([\s\S]*?)```' -AllMatches).Matches.Captures

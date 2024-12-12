@@ -1,4 +1,4 @@
-#import "../ansi-render.typ": ansi-render as __ansi-render, terminal-themes
+#import "../lib.typ": ansi-render as __ansi-render, terminal-themes
 #set document(date: none)
 
 // workaround before set is implemented
@@ -14,6 +14,5 @@ World")
 #grid(
   columns: (auto, auto),
   column-gutter: 1pt,
-  ansi-render("\n\n\n\n\n"),
-  ansi-render("1\n2\n3\n4\n5\n6"),
+  ansi-render("\n\n\n\n\n"), ansi-render("1\n2\n3\n4\n5\n6"),
 )

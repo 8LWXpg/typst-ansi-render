@@ -358,15 +358,17 @@
     let parse-8bit-color(num) = {
       num = int(num)
       let colors = (0, 95, 135, 175, 215, 255)
-      if num <= 7 { match-text.at(str(num + 30)) }
-      else if num <= 15 { match-text.at(str(num + 82)) }
-      else if num <= 231 {
+      if num <= 7 { match-text.at(str(num + 30)) } else if num <= 15 {
+        match-text.at(str(num + 82))
+      } else if num <= 231 {
         num -= 16
-        (fill: rgb(
-          colors.at(int(num / 36)),
-          colors.at(calc.rem(int(num / 6), 6)),
-          colors.at(calc.rem(num, 6)),
-        ))
+        (
+          fill: rgb(
+            colors.at(int(num / 36)),
+            colors.at(calc.rem(int(num / 6), 6)),
+            colors.at(calc.rem(num, 6)),
+          ),
+        )
       } else {
         num -= 232
         (fill: rgb(8 + 10 * num, 8 + 10 * num, 8 + 10 * num))
@@ -384,43 +386,35 @@
         color.at(count) = int(i)
         count += 1
         if count == 3 {
-          if last == "382" { opt-text += (fill: rgb(..color)) }
-          else { opt-bg += (fill: rgb(..color)) }
+          if last == "382" { opt-text += (fill: rgb(..color)) } else { opt-bg += (fill: rgb(..color)) }
           count = 0
           last = none
         }
         continue
-      }
-      else if last == "385" {
+      } else if last == "385" {
         opt-text += parse-8bit-color(i)
         last = none
         continue
-      }
-      else if last == "485" {
+      } else if last == "485" {
         opt-bg += parse-8bit-color(i)
         last = none
         continue
-      }
-      else if i == "0" {
+      } else if i == "0" {
         opt-text += match-text.default
         opt-bg += match-bg.default
         ul = false
         ol = false
         rev = false
-      }
-      else if i in match-bg.keys() { opt-bg += match-bg.at(i) }
-      else if i in match-text.keys() { opt-text += match-text.at(i) }
-      else if i == "4" { ul = true }
-      else if i == "24" { ul = false }
-      else if i == "53" { ol = true }
-      else if i == "55" { ol = false }
-      else if i == "7" { rev = true }
-      else if i == "27" { rev = false }
-      else if i == "38" or i == "48" {
+      } else if i in match-bg.keys() { opt-bg += match-bg.at(i) } else if i in match-text.keys() {
+        opt-text += match-text.at(i)
+      } else if i == "4" { ul = true } else if i == "24" { ul = false } else if i == "53" {
+        ol = true
+      } else if i == "55" { ol = false } else if i == "7" { rev = true } else if i == "27" {
+        rev = false
+      } else if i == "38" or i == "48" {
         last = i
         continue
-      }
-      else if i == "2" or i == "5" {
+      } else if i == "2" or i == "5" {
         if last == "38" or last == "48" {
           last += i
           count = 0
@@ -514,15 +508,15 @@
     if m.rev != none { option.rev = m.rev }
     if option.rev { (option.text.fill, option.bg.fill) = (option.bg.fill, option.text.fill) }
     if option.text.weight == "bold" and bold-is-bright {
-      option.text.fill = if option.text.fill == theme.black { theme.gray }
-      else if option.text.fill == theme.red { theme.bright-red }
-      else if option.text.fill == theme.green { theme.bright-green }
-      else if option.text.fill == theme.yellow { theme.bright-yellow }
-      else if option.text.fill == theme.blue { theme.bright-blue }
-      else if option.text.fill == theme.magenta { theme.bright-magenta }
-      else if option.text.fill == theme.cyan { theme.bright-cyan }
-      else if option.text.fill == theme.white { theme.bright-white }
-      else { option.text.fill }
+      option.text.fill = if option.text.fill == theme.black { theme.gray } else if option.text.fill == theme.red {
+        theme.bright-red
+      } else if option.text.fill == theme.green { theme.bright-green } else if option.text.fill == theme.yellow {
+        theme.bright-yellow
+      } else if option.text.fill == theme.blue { theme.bright-blue } else if option.text.fill == theme.magenta {
+        theme.bright-magenta
+      } else if option.text.fill == theme.cyan { theme.bright-cyan } else if option.text.fill == theme.white {
+        theme.bright-white
+      } else { option.text.fill }
     }
     if m.ul != none { option.ul = m.ul }
     if m.ol != none { option.ol = m.ol }

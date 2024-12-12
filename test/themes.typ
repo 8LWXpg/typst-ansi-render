@@ -1,4 +1,4 @@
-#import "../ansi-render.typ": *
+#import "../lib.typ": *
 #set document(date: none)
 #set page(width: auto, height: auto)
 
