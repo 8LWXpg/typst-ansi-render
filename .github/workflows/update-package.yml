@@ -36,4 +36,4 @@ jobs:
         destination-username: ${{ github.repository_owner }}
         destination-repository: packages
         destination-directory: packages/preview/ansi-render/${{ steps.parsed_tag.outputs.tag }}
-        destination-branch: ansi-render-${{ steps.parsed_tag.outputs.tag }}
+        destination-branch: ansi-render

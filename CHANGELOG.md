@@ -1,4 +1,11 @@
-# Changelog 📝
+# Changelog
+
+## [0.7.0] - 2024-12-12
+
+### Changed
+
+* Changed default entry point to `lib.typ`
+* Added package details
 
 ## [0.6.1] - 2023-12-26
 
