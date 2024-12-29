@@ -1,6 +1,6 @@
 [package]
 name = "ansi-render"
-version = "0.7.0"
+version = "0.8.0"
 entrypoint = "lib.typ"
 authors = ["8LWXpg"]
 license = "MIT"
