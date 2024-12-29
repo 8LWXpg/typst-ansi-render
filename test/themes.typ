@@ -33,3 +33,10 @@
 #preview(theme: terminal-themes.gruvbox-dark)
 == Gruvbox Light
 #preview(theme: terminal-themes.gruvbox-light)
+== Rosé Pine
+#preview(theme: terminal-themes.rose-pine)
+== Rosé Pine Dawn
+#preview(theme: terminal-themes.rose-pine-dawn)
+== Rosé Pine Moon
+#preview(theme: terminal-themes.rose-pine-moon)
+
