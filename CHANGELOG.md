@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.8.0] - 2024-1229
+
+### Added
+
+* Added `rose-pine` theme.
+
 ## [0.7.0] - 2024-12-12
 
 ### Changed

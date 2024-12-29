@@ -1,6 +1,6 @@
+
 // add your theme here!
 #let terminal-themes = (
-  // vscode terminal theme
   vscode: (
     black: rgb("#000000"),
     red: rgb("#CD3131"),
@@ -21,7 +21,6 @@
     default-fg: rgb("#E5E5E5"), // white
     default-bg: rgb("#000000"), // black
   ),
-  // vscode light theme
   vscode-light: (
     black: rgb("#F8F8F8"),
     red: rgb("#CD3131"),
@@ -42,7 +41,6 @@
     default-fg: rgb("#A5A5A5"), // white
     default-bg: rgb("#F8F8F8"), // black
   ),
-  // putty terminal theme
   putty: (
     black: rgb("#000000"),
     red: rgb("#BB0000"),
@@ -63,7 +61,6 @@
     default-fg: rgb("#BBBBBB"), // white
     default-bg: rgb("#000000"), // black
   ),
-  // themes from Windows Terminal
   campbell: (
     black: rgb("#0C0C0C"),
     red: rgb("#C50F1F"),
@@ -302,7 +299,7 @@
     bright-cyan: rgb("#ebbcba"),
     bright-white: rgb("#e0def4"),
     default-fg: rgb("#e0def4"),
-    default-bg: rgb("#191724")
+    default-bg: rgb("#191724"),
   ),
   rose-pine-moon: (
     black: rgb("#232136"),
@@ -322,7 +319,7 @@
     bright-cyan: rgb("#ea9a97"),
     bright-white: rgb("#e0def4"),
     default-fg: rgb("#e0def4"),
-    default-bg: rgb("#232136")
+    default-bg: rgb("#232136"),
   ),
   rose-pine-dawn: (
     black: rgb("#faf4ed"),
@@ -342,7 +339,7 @@
     bright-cyan: rgb("#d7827e"),
     bright-white: rgb("#575279"),
     default-fg: rgb("#575279"),
-    default-bg: rgb("#faf4ed")
+    default-bg: rgb("#faf4ed"),
   ),
 )
 
