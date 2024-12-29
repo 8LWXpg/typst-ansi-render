@@ -31,7 +31,7 @@ jobs:
       env:
         API_TOKEN_GITHUB: ${{ secrets.REPO_PAT }}
       with:
-        commit-email: v3ak6xhthk@gmail.com
+        commit-email: ${{ secrets.EMAIL }}
         source-files: lib.typ CHANGELOG.md LICENSE README.md typst.toml
         destination-username: ${{ github.repository_owner }}
         destination-repository: packages
