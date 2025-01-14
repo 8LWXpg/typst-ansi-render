@@ -119,6 +119,25 @@ theme: terminal-themes.vscode
 
 ![4.png](https://github.com/8LWXpg/typst-ansi-render/blob/master/img/4.png?raw=true)
 
+## Capturing ANSI output
+
+### Output to File
+
+The most straight forward way is writing to a file then read that in Typst.
+
+```bash
+command > out.txt
+```
+
+### Other Method
+
+If writing to a file doesn't work, that means the program will detect the output and trim ANSI sequence accordingly, which means we need a pty interface to execute the script, the following should work in Linux:
+
+```bash
+script "command" out.txt
+exit
+```
+
 ## About Default Font
 
 Typst's default font for `raw` is `Dejavu Sans Mono`, but it has [incorrect top-edge](https://github.com/typst/typst/issues/2231), so the default is set to `Cascadia Code`, which is contained in web editor.
