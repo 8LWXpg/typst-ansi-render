@@ -140,4 +140,4 @@ exit
 
 ## About Default Font
 
-Typst's default font for `raw` is `Dejavu Sans Mono`, but it has [incorrect top-edge](https://github.com/typst/typst/issues/2231), so the default is set to `Cascadia Code`, which is contained in web editor.
+Typst's default font for `raw` is `Dejavu Sans Mono`, but it has [incorrect top-edge](https://github.com/typst/typst/issues/2231), so the default is set to `Cascadia Code`, which is included in web editor.
