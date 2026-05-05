@@ -365,6 +365,7 @@
   let match-text = (
     "1": (weight: "bold"),
     "3": (style: "italic"),
+    "22": (weight: "regular"),
     "23": (style: "normal"),
     "30": (fill: theme.black),
     "31": (fill: theme.red),
