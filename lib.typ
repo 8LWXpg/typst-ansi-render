@@ -365,6 +365,7 @@
   let match-text = (
     "1": (weight: "bold"),
     "3": (style: "italic"),
+    "22": (weight: "regular"),
     "23": (style: "normal"),
     "30": (fill: theme.black),
     "31": (fill: theme.red),
@@ -406,6 +407,51 @@
     "107": (fill: theme.bright-white),
     "default": (fill: theme.default-bg),
   )
+  // convert bright colors to their normal variants
+  let convert-color-normal(color) = {
+    if color == theme.gray {
+      theme.black
+    } else if color == theme.bright-red {
+      theme.red
+    } else if color == theme.bright-green {
+      theme.green
+    } else if color == theme.bright-yellow {
+      theme.yellow
+    } else if color == theme.bright-blue {
+      theme.blue
+    } else if color == theme.bright-magenta {
+      theme.magenta
+    } else if color == theme.bright-cyan {
+      theme.cyan
+    } else if color == theme.bright-white {
+      theme.white
+    } else {
+      color
+    }
+  }
+
+  // convert normal colors to their bright variants
+  let convert-color-bright(color) = {
+    if color == theme.black {
+      theme.gray
+    } else if color == theme.red {
+      theme.bright-red
+    } else if color == theme.green {
+      theme.bright-green
+    } else if color == theme.yellow {
+      theme.bright-yellow
+    } else if color == theme.blue {
+      theme.bright-blue
+    } else if color == theme.magenta {
+      theme.bright-magenta
+    } else if color == theme.cyan {
+      theme.bright-cyan
+    } else if color == theme.white {
+      theme.bright-white
+    } else {
+      color
+    }
+  }
 
   // match for regex parsed options
   // input: array of options in string inside escape sequence
@@ -462,11 +508,21 @@
         ul = false
         ol = false
         rev = false
-      } else if i in match-bg.keys() { opt-bg += match-bg.at(i) } else if i in match-text.keys() {
+      } else if i in match-bg.keys() {
+        opt-bg += match-bg.at(i)
+      } else if i in match-text.keys() {
         opt-text += match-text.at(i)
-      } else if i == "4" { ul = true } else if i == "24" { ul = false } else if i == "53" {
+      } else if i == "4" {
+        ul = true
+      } else if i == "24" {
+        ul = false
+      } else if i == "53" {
         ol = true
-      } else if i == "55" { ol = false } else if i == "7" { rev = true } else if i == "27" {
+      } else if i == "55" {
+        ol = false
+      } else if i == "7" {
+        rev = true
+      } else if i == "27" {
         rev = false
       } else if i == "38" or i == "48" {
         last = i
@@ -564,16 +620,12 @@
     option.bg += m.bg
     if m.rev != none { option.rev = m.rev }
     if option.rev { (option.text.fill, option.bg.fill) = (option.bg.fill, option.text.fill) }
-    if option.text.weight == "bold" and bold-is-bright {
-      option.text.fill = if option.text.fill == theme.black { theme.gray } else if option.text.fill == theme.red {
-        theme.bright-red
-      } else if option.text.fill == theme.green { theme.bright-green } else if option.text.fill == theme.yellow {
-        theme.bright-yellow
-      } else if option.text.fill == theme.blue { theme.bright-blue } else if option.text.fill == theme.magenta {
-        theme.bright-magenta
-      } else if option.text.fill == theme.cyan { theme.bright-cyan } else if option.text.fill == theme.white {
-        theme.bright-white
-      } else { option.text.fill }
+    if bold-is-bright {
+      if option.text.weight == "bold" {
+        option.text.fill = convert-color-bright(option.text.fill)
+      } else {
+        option.text.fill = convert-color-normal(option.text.fill)
+      }
     }
     if m.ul != none { option.ul = m.ul }
     if m.ol != none { option.ol = m.ol }
