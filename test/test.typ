@@ -16,3 +16,9 @@ World")
   column-gutter: 1pt,
   ansi-render("\n\n\n\n\n"), ansi-render("1\n2\n3\n4\n5\n6"),
 )
+
+#ansi-render(
+  "\u{1b}[35m\u{1b}[1mThis text is bold.\u{1b}[22m This text is not. \u{1b}[1mThis text is bold again.\u{1b}[22m",
+  bold-is-bright: true,
+  theme: terminal-themes.vintage,
+)
