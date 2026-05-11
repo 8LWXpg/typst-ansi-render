@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.9.1] - 2026-05-11
+
+### Fixed
+
+* Fixed `bold-is-bright` option rendering logic
+* Removed workaround for under/overline with trailing whitespace
+
 ## [0.9.0] - 2026-05-06
 
 ### Added
@@ -10,7 +17,7 @@
 
 ### Added
 
-* Added `rose-pine` theme.
+* Added `rose-pine` theme
 
 ## [0.7.0] - 2024-12-12
 

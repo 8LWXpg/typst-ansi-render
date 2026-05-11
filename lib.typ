@@ -407,29 +407,6 @@
     "107": (fill: theme.bright-white),
     "default": (fill: theme.default-bg),
   )
-  // convert bright colors to their normal variants
-  let convert-color-normal(color) = {
-    if color == theme.gray {
-      theme.black
-    } else if color == theme.bright-red {
-      theme.red
-    } else if color == theme.bright-green {
-      theme.green
-    } else if color == theme.bright-yellow {
-      theme.yellow
-    } else if color == theme.bright-blue {
-      theme.blue
-    } else if color == theme.bright-magenta {
-      theme.magenta
-    } else if color == theme.bright-cyan {
-      theme.cyan
-    } else if color == theme.bright-white {
-      theme.white
-    } else {
-      color
-    }
-  }
-
   // convert normal colors to their bright variants
   let convert-color-bright(color) = {
     if color == theme.black {
@@ -624,24 +601,17 @@
     option.bg += m.bg
     if m.rev != none { option.rev = m.rev }
     if option.rev { (option.text.fill, option.bg.fill) = (option.bg.fill, option.text.fill) }
-    if bold-is-bright {
-      if option.text.weight == "bold" {
-        option.text.fill = convert-color-bright(option.text.fill)
-      } else {
-        option.text.fill = convert-color-normal(option.text.fill)
-      }
-    }
     if m.ul != none { option.ul = m.ul }
     if m.ol != none { option.ol = m.ol }
     // slightly reduce pdf size by removing default box fill
     if option.bg.fill == theme.default-bg { option.bg.fill = none }
     if option.text.fill == none { option.text.fill = theme.default-bg }
 
-    // workaround for trailing whitespace with under/overline
-    str = str.replace(regex("([ \t]+)$"), m => m.captures.at(0) + "\u{200b}")
     {
       show: box.with(..option.bg)
-      set text(..option.text)
+      set text(..option.text, ..if bold-is-bright and option.text.weight == "bold" {
+        (fill: convert-color-bright(option.text.fill))
+      })
       show: c => if option.ul { underline(c) } else { c }
       show: c => if option.ol { overline(c) } else { c }
       raw(str)
