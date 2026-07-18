@@ -483,7 +483,7 @@
         opt-bg += parse-8bit-color(i)
         last = none
         continue
-      } else if i == "0" {
+      } else if i == "0" or i == "" {
         opt-text += match-text.default
         opt-bg += match-bg.default
         ul = false

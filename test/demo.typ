@@ -53,3 +53,5 @@
   ansi-render(bold-bright-test, theme: terminal-themes.vintage),
   ansi-render(bold-bright-test, theme: terminal-themes.vintage, bold-is-bright: true),
 )
+
+#ansi-render("\u{1b}[32m Green\u{1b}[m Should not be green")

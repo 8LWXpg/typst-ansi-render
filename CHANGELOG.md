@@ -1,5 +1,9 @@
 # Changelog
 
+## [0.9.2] - 2026-07-18
+
+* Same behavior as `0` for empty control code.
+
 ## [0.9.1] - 2026-05-11
 
 ### Fixed
